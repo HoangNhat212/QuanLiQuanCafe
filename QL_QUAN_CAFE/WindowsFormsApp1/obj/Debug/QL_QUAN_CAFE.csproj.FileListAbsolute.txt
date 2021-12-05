@@ -35,6 +35,7 @@ C:\Users\Administrator\Desktop\QLCAFE-TEST\QL_QUAN_CAFE\WindowsFormsApp1\obj\Deb
 C:\Users\Administrator\Desktop\QLCAFE-TEST\QL_QUAN_CAFE\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.exe
 C:\Users\Administrator\Desktop\QLCAFE-TEST\QL_QUAN_CAFE\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.pdb
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 C:\Users\Admin\Source\Repos\QuanLiQuanCafe\QL_QUAN_CAFE\WindowsFormsApp1\bin\Debug\WindowsFormsApp1.exe.config
 C:\Users\Admin\Source\Repos\QuanLiQuanCafe\QL_QUAN_CAFE\WindowsFormsApp1\bin\Debug\WindowsFormsApp1.exe
 C:\Users\Admin\Source\Repos\QuanLiQuanCafe\QL_QUAN_CAFE\WindowsFormsApp1\bin\Debug\WindowsFormsApp1.pdb
@@ -54,6 +55,8 @@ C:\Users\Admin\Source\Repos\QuanLiQuanCafe\QL_QUAN_CAFE\WindowsFormsApp1\obj\Deb
 C:\Users\Admin\Source\Repos\QuanLiQuanCafe\QL_QUAN_CAFE\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.exe
 C:\Users\Admin\Source\Repos\QuanLiQuanCafe\QL_QUAN_CAFE\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.pdb
 =======
+=======
+>>>>>>> Stashed changes
 C:\Users\Administrator\Desktop\QuanLiQuanCafe\QL_QUAN_CAFE\WindowsFormsApp1\bin\Debug\WindowsFormsApp1.exe.config
 C:\Users\Administrator\Desktop\QuanLiQuanCafe\QL_QUAN_CAFE\WindowsFormsApp1\bin\Debug\WindowsFormsApp1.exe
 C:\Users\Administrator\Desktop\QuanLiQuanCafe\QL_QUAN_CAFE\WindowsFormsApp1\bin\Debug\WindowsFormsApp1.pdb
@@ -72,4 +75,7 @@ C:\Users\Administrator\Desktop\QuanLiQuanCafe\QL_QUAN_CAFE\WindowsFormsApp1\obj\
 C:\Users\Administrator\Desktop\QuanLiQuanCafe\QL_QUAN_CAFE\WindowsFormsApp1\obj\Debug\QL_QUAN_CAFE.csproj.CoreCompileInputs.cache
 C:\Users\Administrator\Desktop\QuanLiQuanCafe\QL_QUAN_CAFE\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.exe
 C:\Users\Administrator\Desktop\QuanLiQuanCafe\QL_QUAN_CAFE\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.pdb
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
