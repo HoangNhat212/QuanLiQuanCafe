@@ -21,9 +21,9 @@ namespace WindowsFormsApp1.DAO
 
         public bool Login(string userName, string passWord)
         {
-            string query = " select * from dbo.Account where UserName = N'" +userName + "' and PassWord = N'" + passWord +"' ";
+            string query = "USP_Login @userName , @passWord";
 
-            DataTable result = DataProvider.Instance.ExecuteQuery(query);
+            DataTable result = DataProvider.Instance.ExecuteQuery(query,new object[]{userName, passWord});
 
             return result.Rows.Count > 0;
         }

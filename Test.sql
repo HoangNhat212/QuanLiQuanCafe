@@ -77,3 +77,28 @@ end
 go
 
 exec dbo.USP_GetListAccountByUserName @username = N'N2' 
+
+ --Add bàn vào form chính
+declare @i int =0
+while @i<=15
+begin
+	insert TABLEFOOD(name,STATUS) values (N'Bàn '+ cast(@i as nvarchar(100)),0)
+	set @i=@i+1
+end
+select*from TABLEFOOD
+
+Create proc USP_GetTableList
+as select * from dbo.TABLEFOOD
+go
+update  dbo.TABLEFOOD set status =1 where ID= 18
+exec dbo.USP_GetTableList
+go
+
+---Tạo bảo mật đăng nhập:
+create proc USP_Login
+@userName nvarchar(100), @passWord nvarchar(100)
+as
+begin
+	select * from dbo.ACCOUNT where USERNAME=@userName and PASSWORD=@passWord
+end 
+go
