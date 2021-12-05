@@ -19,8 +19,23 @@ namespace WindowsFormsApp1
             InitializeComponent();
             label1.Text ="   " + DateTime.Now.ToString();
             LoadTable();
+            LoadCategory();
         }
         #region Method
+
+        void LoadCategory()
+        {
+            List<Category> listCategory = CategoryDAO.Instance.GetListCategory();
+            cbCategory.DataSource = listCategory;
+            cbCategory.DisplayMember = "Name";
+        }
+
+        void LoadFoodListByCategoryID(int id)
+        {
+            List<Food> listFood = FoodDAO.Instance.GetFoodByCategoryID(id);
+            cbFood.DataSource = listFood;
+            cbFood.DisplayMember = "Name";
+        }
         void LoadTable()
         {
             List<Table> tableList = TableDAO.Instance.LoadTableList();
@@ -33,7 +48,7 @@ namespace WindowsFormsApp1
                     case "0":
                         {
                             item.Status = "Trống";
-                            btn.BackColor = Color.Gold;
+                            btn.BackColor = Color.FromArgb(255, 243, 35);
                             break;
                         }
                     default:
@@ -90,6 +105,29 @@ namespace WindowsFormsApp1
         {
             this.WindowState = FormWindowState.Minimized;
         }
+        private void cbCategory_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int id = 0;
+
+            ComboBox cb = sender as ComboBox;
+
+            if (cb.SelectedItem == null)
+                return;
+
+            Category selected = cb.SelectedItem as Category;
+            id = selected.ID;
+
+            LoadFoodListByCategoryID(id);
+        }
+
+        private void btnAddFood_Click(object sender, EventArgs e)
+        {
+
+        }
+
+
         #endregion
+
+
     }
 }
