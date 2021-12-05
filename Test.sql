@@ -102,3 +102,5 @@ begin
 	select * from dbo.ACCOUNT where USERNAME=@userName and PASSWORD=@passWord
 end 
 go
+select*from TABLEFOOD
+select*from TABLEFOOD
