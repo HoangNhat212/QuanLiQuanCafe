@@ -40,6 +40,7 @@ namespace WindowsFormsApp1
         }
         void LoadTable()
         {
+            flpTable.Controls.Clear();
             List<Table> tableList = TableDAO.Instance.LoadTableList();
 
             foreach(Table item in tableList)
@@ -99,7 +100,21 @@ namespace WindowsFormsApp1
             fAdmin f = new fAdmin();
             f.ShowDialog();
         }
+        private void btnCheck_Click(object sender, EventArgs e)
+        {
+            Table table = lsvBill.Tag as Table;
+            int idBill = BillDAO.Instance.GetUncheckBillIDByTableID(table.ID);
+            if (idBill != -1)
+            {
+                if(MessageBox.Show("Bạn có chắc thanh toán hoá đơn cho bàn","Thông báo",MessageBoxButtons.OKCancel)==System.Windows.Forms.DialogResult.OK)
+                {
+                    BillDAO.Instance.CheckOut(idBill);
+                    ShowBill(table.ID);
+                    LoadTable();
+                }    
+            }
 
+        }
         private void btnOpenFormProfile_Click(object sender, EventArgs e)
         {
             fAccountProfile f = new fAccountProfile();
@@ -168,7 +183,10 @@ namespace WindowsFormsApp1
             }
 
             ShowBill(table.ID);
+            LoadTable();
         }
-            #endregion
+        #endregion
+
+        
     }
 }

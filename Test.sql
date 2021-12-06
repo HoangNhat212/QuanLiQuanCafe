@@ -179,6 +179,14 @@ BEGIN
 END
 GO
 
+CREATE PROC USP_InsertBillInfo
+@idBill INT, @idFood int, @count int
+as
+begin
+	insert dbo.BILLINFO(IDBILL,IDFOOD,COUNT) values(@idBill,@idFood,@count)
+end
+go
+
 ALTER PROC USP_InsertBillInfo 
 @idBill INT, @idFood INT, @count INT
 AS
@@ -210,3 +218,58 @@ BEGIN
 	END
 END
 GO
+
+update dbo.BILL set STATUS=1 where ID=1
+
+DELETE BILLINFO
+DELETE BILL
+
+create trigger UTG_UpdateBillInfor 
+on dbo.BILLINFO FOR INSERT, UPDATE
+AS
+BEGIN
+	DECLARE @idBill INT
+	SELECT @idBill=idBill from inserted 
+
+	DECLARE @idTable INT
+	SELECT @idTable=idTable FROM dbo.BILL WHERE id=@idBill and status=0
+
+	update dbo.TABLEFOOD SET STATUS=1 WHERE ID=@idTable
+END
+GO
+
+CREATE TRIGGER UTG_UpdateBill
+on dbo.BILL for UPDATE
+as
+begin
+	DECLARE @idBill int
+	SELECT @idBill =id FROM inserted 
+
+	
+	DECLARE @idTable INT
+	SELECT @idTable=idTable FROM dbo.BILL WHERE id=@idBill 
+	DECLARE @count int=0
+	SELECT @count=COUNT(*) FROM dbo.BILL WHERE idTable=@idTable and status=0
+	IF(@count=0)
+		UPDATE dbo.TABLEFOOD SET STATUS=0
+
+end
+go
+ALTER TRIGGER UTG_UpdateBill
+on dbo.BILL for UPDATE
+as
+begin
+	DECLARE @idBill int
+	SELECT @idBill =id FROM inserted 
+
+	
+	DECLARE @idTable INT
+	SELECT @idTable=idTable FROM dbo.BILL WHERE id=@idBill 
+	DECLARE @count int=0
+	SELECT @count=COUNT(*) FROM dbo.BILL WHERE idTable=@idTable and status=0
+	IF(@count=0)
+		UPDATE dbo.TABLEFOOD SET STATUS=0 WHERE ID=@idTable
+
+end
+go
+
