@@ -23,7 +23,7 @@ namespace WindowsFormsApp1.DAO
         {
             List<Food> list = new List<Food>();
 
-            string query = "select * from Food where idCategory =" + id;
+            string query = "select * from Food where IDCATEGORY =" + id;
 
             DataTable data = DataProvider.Instance.ExecuteQuery(query);
 

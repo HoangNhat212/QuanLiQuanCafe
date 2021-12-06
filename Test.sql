@@ -155,3 +155,58 @@ select*from TABLEFOOD
 select*from BILL where IDTABLE=9
 select fod.NAME,bilinf.COUNT,fod.PRICE,fod.PRICE*bilinf.COUNT as TotalPrice from dbo.BILLINFO as bilinf, BILL as bil,dbo.FOOD as fod 
 where bilinf.IDBILL = bil.ID and bilinf.IDFOOD = fod.ID and bil.STATUS=0 and bil.IDTABLE = 9
+
+CREATE PROC USP_InsertBill
+@idTable INT
+AS
+BEGIN
+	INSERT dbo. Bill
+
+		(
+		DateCheckIn,
+
+		DateCheckOut,
+
+		idTable,
+
+		status
+		)
+
+	VALUES ( GETDATE(),
+			NULL,
+			@idTable,
+			0 )
+END
+GO
+
+ALTER PROC USP_InsertBillInfo 
+@idBill INT, @idFood INT, @count INT
+AS
+BEGIN
+	DECLARE @IsExitsBillInfo INT
+	DECLARE @foodCount INT = 1
+
+	SELECT @IsExitsBillInfo = id , @foodCount = b.count
+	FROM dbo.BillInfo AS b
+	WHERE idBill = @idBill AND idFood = @idFood 
+
+	IF (@IsExitsBillInfo > 0)
+	BEGIN
+			DECLARE @newCount INT = @foodCount + @count
+			IF (@newCount > 0)
+				UPDATE dbo.BillInfo SET count = @foodCount + @count where IDFOOD=@idFood
+			ELSE
+				DELETE dbo.BillInfo WHERE idBill = @idBill AND idFood = @idFood
+	END
+	ELSE
+	BEGIN
+		INSERT dbo.BillInfo
+				(idBill, idFood, count)
+
+		VALUES (@idBill, -- idBill -- int
+				@idFood, -- idFood - int
+				@count -- count - int
+				)
+	END
+END
+GO

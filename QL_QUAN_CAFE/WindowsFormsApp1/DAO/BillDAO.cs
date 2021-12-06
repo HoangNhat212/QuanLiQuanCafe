@@ -18,9 +18,9 @@ namespace WindowsFormsApp1.DAO
             private set { BillDAO.instance = value; }
         }
         private BillDAO() { }
-        public int GetBillIDbyTableID(int id)
+        public int GetUncheckBillIDByTableID(int id)
         {
-            DataTable data = DataProvider.Instance.ExecuteQuery("select*from BILL where IDTABLE= " + id + " and status =1");
+            DataTable data = DataProvider.Instance.ExecuteQuery("select * from BILL where IDTABLE= " + id + " and status = 0");
             if (data.Rows.Count > 0)
             {
                 Bill bill = new Bill(data.Rows[0]);
@@ -28,5 +28,24 @@ namespace WindowsFormsApp1.DAO
             }
             return -1;
         }
+
+        public void InsertBill(int id)
+        {
+            DataProvider.Instance.ExecuteNonQuery("exec USP_InsertBill @idTable", new object[]{id});
+        }
+
+        public int GetMaxIDBill()
+        {
+            try
+            {
+                return (int)DataProvider.Instance.ExecuteScalar("SELECT MAX(id) FROM dbo.Bill");
+            }
+
+            catch
+            {
+                return 1;
+            }
+        }
+
     }
 }
