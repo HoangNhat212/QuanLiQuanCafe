@@ -90,7 +90,7 @@ select*from TABLEFOOD
 Create proc USP_GetTableList
 as select * from dbo.TABLEFOOD
 go
-update  dbo.TABLEFOOD set status =1 where ID= 10
+update  dbo.TABLEFOOD set status =1 where ID= 2
 exec dbo.USP_GetTableList
 go
 
@@ -134,8 +134,10 @@ insert dbo.FOOD(NAME,IDCATEGORY,PRICE)values('Hồng trà dâu',5,35000)
 insert dbo.BILL(DATECHECKIN,DATECHECKOUT,IDTABLE,STATUS) values(GETDATE(),GETDATE(),9,0)
 insert dbo.BILL(DATECHECKIN,DATECHECKOUT,IDTABLE,STATUS) values(GETDATE(),GETDATE(),8,1)
 insert dbo.BILL(DATECHECKIN,DATECHECKOUT,IDTABLE,STATUS) values(GETDATE(),GETDATE(),4,1)
-select*from BILL
+select*from BILL,BILLINFO
+select*from BILLINFO
 select*from TABLEFOOD
+
 --Thêm BillInfo--
 insert dbo.BILLINFO(IDBILL,IDFOOD,COUNT) values(1,3,2)
 insert dbo.BILLINFO(IDBILL,IDFOOD,COUNT) values(1,6,2)
@@ -148,4 +150,8 @@ insert dbo.BILLINFO(IDBILL,IDFOOD,COUNT) values(3,2,1)
 select*from BILLINFO where IDBILL=1
 select*from BILL where IDTABLE=4 and status =1
 select fod.NAME,bilinf.COUNT,fod.PRICE,fod.PRICE*bilinf.COUNT as TotalPrice from dbo.BILLINFO as bilinf, BILL as bil,dbo.FOOD as fod
-where bilinf.IDBILL=bil.ID and bilinf.IDFOOD=fod.ID and bil.IDTABLE=9
+where bilinf.IDBILL=bil.ID and bilinf.IDFOOD=fod.ID and bil.STATUS=0 and bil.IDTABLE=9
+select*from TABLEFOOD
+select*from BILL where IDTABLE=9
+select fod.NAME,bilinf.COUNT,fod.PRICE,fod.PRICE*bilinf.COUNT as TotalPrice from dbo.BILLINFO as bilinf, BILL as bil,dbo.FOOD as fod 
+where bilinf.IDBILL = bil.ID and bilinf.IDFOOD = fod.ID and bil.STATUS=0 and bil.IDTABLE = 9
