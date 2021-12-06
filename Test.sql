@@ -145,4 +145,7 @@ insert dbo.BILLINFO(IDBILL,IDFOOD,COUNT) values(2,12,1)
 insert dbo.BILLINFO(IDBILL,IDFOOD,COUNT) values(2,8,1)
 insert dbo.BILLINFO(IDBILL,IDFOOD,COUNT) values(2,9,1)
 insert dbo.BILLINFO(IDBILL,IDFOOD,COUNT) values(3,2,1)
-select*from BILLINFO
+select*from BILLINFO where IDBILL=1
+select*from BILL where IDTABLE=4 and status =1
+select fod.NAME,bilinf.COUNT,fod.PRICE,fod.PRICE*bilinf.COUNT as TotalPrice from dbo.BILLINFO as bilinf, BILL as bil,dbo.FOOD as fod
+where bilinf.IDBILL=bil.ID and bilinf.IDFOOD=fod.ID and bil.IDTABLE=9

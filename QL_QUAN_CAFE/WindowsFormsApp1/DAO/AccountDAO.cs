@@ -14,7 +14,7 @@ namespace WindowsFormsApp1.DAO
         public static AccountDAO Instance 
         { 
             get { if (instance == null) instance = new AccountDAO(); return instance; }
-            private set { instance = value; }
+            private set { AccountDAO.instance = value; }
         }
 
         private AccountDAO() { }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,6 +21,7 @@ namespace WindowsFormsApp1
             label1.Text ="   " + DateTime.Now.ToString();
             LoadTable();
             LoadCategory();
+            
         }
         #region Method
 
@@ -43,6 +45,8 @@ namespace WindowsFormsApp1
             foreach(Table item in tableList)
             {
                 Button btn = new Button() { Width = TableDAO.TableWidth,  Height=TableDAO.TableHeight };
+                btn.Click += Btn_Click;
+                btn.Tag = item;
                 switch (item.Status)
                 {
                     case "0":
@@ -60,12 +64,35 @@ namespace WindowsFormsApp1
                 }
                 btn.Text = item.Name + Environment.NewLine + item.Status;
                 flpTable.Controls.Add(btn);
-
+                
               
             }
         }
+        void ShowBill(int id)
+        {
+            lsvBill.Items.Clear();
+            List<Menu1> listMenu = Menu1DAO.Instance.GetListMenuByTable(id);
+            float totalPrice = 0;
+            foreach(Menu1 item in listMenu)
+            {
+                ListViewItem lsvItem = new ListViewItem(item.FoodName.ToString());
+                lsvItem.SubItems.Add(item.Count.ToString());
+                lsvItem.SubItems.Add(item.Price.ToString());
+                lsvItem.SubItems.Add(item.TotalPrice.ToString());
+                lsvBill.Items.Add(lsvItem);
+                totalPrice += item.TotalPrice;
+            }
+            CultureInfo culture = new CultureInfo("vi-VN");
+            txbTotalPrice.Text = totalPrice.ToString("c",culture);
+        }
+
         #endregion
         #region Event
+        private void Btn_Click(object sender, EventArgs e)
+        {
+            int tableID = ((sender as Button).Tag as Table).ID;
+            ShowBill(tableID);
+        }
         private void btnOpenFormAdmin_Click(object sender, EventArgs e)
         {
             fAdmin f = new fAdmin();
