@@ -275,3 +275,4 @@ go
 
 select*from tablefood
 select*from tablefood
+select*from bill
