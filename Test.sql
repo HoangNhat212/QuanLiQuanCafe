@@ -273,3 +273,4 @@ begin
 end
 go
 
+select*from tablefood
