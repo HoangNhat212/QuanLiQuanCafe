@@ -274,3 +274,4 @@ end
 go
 
 select*from tablefood
+select*from tablefood
