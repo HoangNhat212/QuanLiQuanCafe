@@ -90,7 +90,7 @@ select*from TABLEFOOD
 Create proc USP_GetTableList
 as select * from dbo.TABLEFOOD
 go
-update  dbo.TABLEFOOD set status =1 where ID= 18
+update  dbo.TABLEFOOD set status =1 where ID= 10
 exec dbo.USP_GetTableList
 go
 
@@ -104,3 +104,45 @@ end
 go
 select*from TABLEFOOD
 select*from TABLEFOOD
+--Thêm category--
+insert dbo.FOODCATEGORY (NAME) values('Coffee')
+insert dbo.FOODCATEGORY (NAME) values('Nước Ngọt')
+insert dbo.FOODCATEGORY (NAME) values('Thức ăn nhanh')
+insert dbo.FOODCATEGORY (NAME) values('Detox')
+insert dbo.FOODCATEGORY (NAME) values('Trà')
+select*from FOODCATEGORY
+select*from FOOD
+--Thêm food--
+insert dbo.FOOD(NAME,IDCATEGORY,PRICE)values('Expresso',1,35000)
+insert dbo.FOOD(NAME,IDCATEGORY,PRICE)values('Americano',1,40000)
+insert dbo.FOOD(NAME,IDCATEGORY,PRICE)values('Cold Brew',1,35000)
+insert dbo.FOOD(NAME,IDCATEGORY,PRICE)values('Bạc xỉu',1,35000)
+insert dbo.FOOD(NAME,IDCATEGORY,PRICE)values('Cà phê đen',1,35000)
+insert dbo.FOOD(NAME,IDCATEGORY,PRICE)values('Sting',2,12000)
+insert dbo.FOOD(NAME,IDCATEGORY,PRICE)values('7Up',2,12000)
+insert dbo.FOOD(NAME,IDCATEGORY,PRICE)values('Number One',2,12000)
+insert dbo.FOOD(NAME,IDCATEGORY,PRICE)values('Coca Cola',2,12000)
+insert dbo.FOOD(NAME,IDCATEGORY,PRICE)values('PepSi',2,12000)
+insert dbo.FOOD(NAME,IDCATEGORY,PRICE)values('Bánh Mì',3,40000)
+insert dbo.FOOD(NAME,IDCATEGORY,PRICE)values('Mì xào',3,25000)
+insert dbo.FOOD(NAME,IDCATEGORY,PRICE)values('Bò Né',3,40000)
+insert dbo.FOOD(NAME,IDCATEGORY,PRICE)values('Tropical Detox',4,40000)
+insert dbo.FOOD(NAME,IDCATEGORY,PRICE)values('Trà đào',5,35000)
+insert dbo.FOOD(NAME,IDCATEGORY,PRICE)values('Trà vải',5,35000)
+insert dbo.FOOD(NAME,IDCATEGORY,PRICE)values('Hồng trà dâu',5,35000)
+--Thêm Bill--
+insert dbo.BILL(DATECHECKIN,DATECHECKOUT,IDTABLE,STATUS) values(GETDATE(),GETDATE(),9,0)
+insert dbo.BILL(DATECHECKIN,DATECHECKOUT,IDTABLE,STATUS) values(GETDATE(),GETDATE(),8,1)
+insert dbo.BILL(DATECHECKIN,DATECHECKOUT,IDTABLE,STATUS) values(GETDATE(),GETDATE(),4,1)
+select*from BILL
+select*from TABLEFOOD
+--Thêm BillInfo--
+insert dbo.BILLINFO(IDBILL,IDFOOD,COUNT) values(1,3,2)
+insert dbo.BILLINFO(IDBILL,IDFOOD,COUNT) values(1,6,2)
+insert dbo.BILLINFO(IDBILL,IDFOOD,COUNT) values(1,11,2)
+insert dbo.BILLINFO(IDBILL,IDFOOD,COUNT) values(2,2,1)
+insert dbo.BILLINFO(IDBILL,IDFOOD,COUNT) values(2,12,1)
+insert dbo.BILLINFO(IDBILL,IDFOOD,COUNT) values(2,8,1)
+insert dbo.BILLINFO(IDBILL,IDFOOD,COUNT) values(2,9,1)
+insert dbo.BILLINFO(IDBILL,IDFOOD,COUNT) values(3,2,1)
+select*from BILLINFO
