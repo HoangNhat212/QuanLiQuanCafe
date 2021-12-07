@@ -275,4 +275,12 @@ go
 
 select*from tablefood
 select*from tablefood
+<<<<<<< Updated upstream
 select*from bill
+=======
+
+hello abc
+abcđsdfdsgf
+ádnajsdhandasd
+sdfsf
+>>>>>>> Stashed changes
