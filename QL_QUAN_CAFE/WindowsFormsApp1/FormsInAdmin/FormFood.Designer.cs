@@ -44,7 +44,7 @@ namespace WindowsFormsApp1.FormsInAdmin
             this.txbFoodName = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.panel7 = new System.Windows.Forms.Panel();
-            this.tbxFoodID = new System.Windows.Forms.TextBox();
+            this.txbFoodID = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
             this.btnShowFood = new System.Windows.Forms.Button();
@@ -92,7 +92,7 @@ namespace WindowsFormsApp1.FormsInAdmin
             this.txbSearchFoodName.Location = new System.Drawing.Point(97, 15);
             this.txbSearchFoodName.Margin = new System.Windows.Forms.Padding(2);
             this.txbSearchFoodName.Name = "txbSearchFoodName";
-            this.txbSearchFoodName.Size = new System.Drawing.Size(223, 23);
+            this.txbSearchFoodName.Size = new System.Drawing.Size(223, 31);
             this.txbSearchFoodName.TabIndex = 1;
             // 
             // btnSearchFood
@@ -138,7 +138,7 @@ namespace WindowsFormsApp1.FormsInAdmin
             this.cbFoodCategory.Location = new System.Drawing.Point(94, 10);
             this.cbFoodCategory.Margin = new System.Windows.Forms.Padding(2);
             this.cbFoodCategory.Name = "cbFoodCategory";
-            this.cbFoodCategory.Size = new System.Drawing.Size(223, 23);
+            this.cbFoodCategory.Size = new System.Drawing.Size(223, 33);
             this.cbFoodCategory.TabIndex = 1;
             // 
             // label3
@@ -149,7 +149,7 @@ namespace WindowsFormsApp1.FormsInAdmin
             this.label3.Location = new System.Drawing.Point(-4, 10);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(87, 23);
+            this.label3.Size = new System.Drawing.Size(134, 34);
             this.label3.TabIndex = 0;
             this.label3.Text = "Danh mục:";
             // 
@@ -173,7 +173,7 @@ namespace WindowsFormsApp1.FormsInAdmin
             0,
             0});
             this.nmFoodPrice.Name = "nmFoodPrice";
-            this.nmFoodPrice.Size = new System.Drawing.Size(222, 23);
+            this.nmFoodPrice.Size = new System.Drawing.Size(222, 31);
             this.nmFoodPrice.TabIndex = 1;
             // 
             // label4
@@ -184,7 +184,7 @@ namespace WindowsFormsApp1.FormsInAdmin
             this.label4.Location = new System.Drawing.Point(-4, 10);
             this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(40, 23);
+            this.label4.Size = new System.Drawing.Size(59, 34);
             this.label4.TabIndex = 0;
             this.label4.Text = "Giá:";
             // 
@@ -203,7 +203,7 @@ namespace WindowsFormsApp1.FormsInAdmin
             this.txbFoodName.Location = new System.Drawing.Point(95, 8);
             this.txbFoodName.Margin = new System.Windows.Forms.Padding(2);
             this.txbFoodName.Name = "txbFoodName";
-            this.txbFoodName.Size = new System.Drawing.Size(223, 23);
+            this.txbFoodName.Size = new System.Drawing.Size(223, 31);
             this.txbFoodName.TabIndex = 1;
             // 
             // label2
@@ -214,13 +214,13 @@ namespace WindowsFormsApp1.FormsInAdmin
             this.label2.Location = new System.Drawing.Point(-4, 10);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(75, 23);
+            this.label2.Size = new System.Drawing.Size(112, 34);
             this.label2.TabIndex = 0;
             this.label2.Text = "Tên món:";
             // 
             // panel7
             // 
-            this.panel7.Controls.Add(this.tbxFoodID);
+            this.panel7.Controls.Add(this.txbFoodID);
             this.panel7.Controls.Add(this.label1);
             this.panel7.Location = new System.Drawing.Point(2, 13);
             this.panel7.Margin = new System.Windows.Forms.Padding(2);
@@ -228,15 +228,16 @@ namespace WindowsFormsApp1.FormsInAdmin
             this.panel7.Size = new System.Drawing.Size(319, 43);
             this.panel7.TabIndex = 1;
             // 
-            // tbxFoodID
+            // txbFoodID
             // 
-            this.tbxFoodID.BackColor = System.Drawing.SystemColors.Window;
-            this.tbxFoodID.Location = new System.Drawing.Point(95, 8);
-            this.tbxFoodID.Margin = new System.Windows.Forms.Padding(2);
-            this.tbxFoodID.Name = "tbxFoodID";
-            this.tbxFoodID.ReadOnly = true;
-            this.tbxFoodID.Size = new System.Drawing.Size(223, 23);
-            this.tbxFoodID.TabIndex = 1;
+            this.txbFoodID.BackColor = System.Drawing.SystemColors.Window;
+            this.txbFoodID.Location = new System.Drawing.Point(95, 8);
+            this.txbFoodID.Margin = new System.Windows.Forms.Padding(2);
+            this.txbFoodID.Name = "txbFoodID";
+            this.txbFoodID.ReadOnly = true;
+            this.txbFoodID.Size = new System.Drawing.Size(223, 31);
+            this.txbFoodID.TabIndex = 1;
+            this.txbFoodID.TextChanged += new System.EventHandler(this.txbFoodID_TextChanged);
             // 
             // label1
             // 
@@ -246,7 +247,7 @@ namespace WindowsFormsApp1.FormsInAdmin
             this.label1.Location = new System.Drawing.Point(2, 10);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(31, 23);
+            this.label1.Size = new System.Drawing.Size(46, 34);
             this.label1.TabIndex = 0;
             this.label1.Text = "ID:";
             // 
@@ -275,6 +276,7 @@ namespace WindowsFormsApp1.FormsInAdmin
             this.btnShowFood.TabIndex = 0;
             this.btnShowFood.Text = "Xem";
             this.btnShowFood.UseVisualStyleBackColor = true;
+            this.btnShowFood.Click += new System.EventHandler(this.btnShowFood_Click);
             // 
             // btnEditFood
             // 
@@ -314,7 +316,7 @@ namespace WindowsFormsApp1.FormsInAdmin
             // 
             // FormFood
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::WindowsFormsApp1.Properties.Resources.bground__2_;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
@@ -363,7 +365,7 @@ namespace WindowsFormsApp1.FormsInAdmin
         private System.Windows.Forms.TextBox txbFoodName;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel panel7;
-        private System.Windows.Forms.TextBox tbxFoodID;
+        private System.Windows.Forms.TextBox txbFoodID;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Button btnShowFood;
