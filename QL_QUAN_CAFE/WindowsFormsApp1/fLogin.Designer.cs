@@ -38,11 +38,11 @@
             this.btnLogin = new System.Windows.Forms.Button();
             this.btnExit = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.panel3.SuspendLayout();
@@ -68,7 +68,7 @@
             // 
             this.pictureBox2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox2.BackgroundImage")));
             this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox2.Location = new System.Drawing.Point(27, -3);
+            this.pictureBox2.Location = new System.Drawing.Point(2, -3);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(34, 41);
             this.pictureBox2.TabIndex = 2;
@@ -80,10 +80,10 @@
             this.txbUserName.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txbUserName.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txbUserName.ForeColor = System.Drawing.Color.Black;
-            this.txbUserName.Location = new System.Drawing.Point(72, 11);
+            this.txbUserName.Location = new System.Drawing.Point(41, 10);
             this.txbUserName.Margin = new System.Windows.Forms.Padding(2);
             this.txbUserName.Name = "txbUserName";
-            this.txbUserName.Size = new System.Drawing.Size(223, 20);
+            this.txbUserName.Size = new System.Drawing.Size(228, 20);
             this.txbUserName.TabIndex = 1;
             // 
             // panel3
@@ -101,7 +101,7 @@
             // 
             this.pictureBox3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox3.BackgroundImage")));
             this.pictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox3.Location = new System.Drawing.Point(27, 3);
+            this.pictureBox3.Location = new System.Drawing.Point(2, 3);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(32, 30);
             this.pictureBox3.TabIndex = 2;
@@ -113,11 +113,11 @@
             this.txbPassWord.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txbPassWord.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txbPassWord.ForeColor = System.Drawing.Color.Black;
-            this.txbPassWord.Location = new System.Drawing.Point(72, 11);
+            this.txbPassWord.Location = new System.Drawing.Point(41, 10);
             this.txbPassWord.Margin = new System.Windows.Forms.Padding(2);
             this.txbPassWord.Name = "txbPassWord";
             this.txbPassWord.PasswordChar = '•';
-            this.txbPassWord.Size = new System.Drawing.Size(223, 20);
+            this.txbPassWord.Size = new System.Drawing.Size(228, 20);
             this.txbPassWord.TabIndex = 1;
             this.txbPassWord.UseSystemPasswordChar = true;
             // 
@@ -174,6 +174,17 @@
             this.panel1.Size = new System.Drawing.Size(441, 467);
             this.panel1.TabIndex = 0;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("UTM Aristote", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.Orange;
+            this.label1.Location = new System.Drawing.Point(85, -1);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(274, 63);
+            this.label1.TabIndex = 7;
+            this.label1.Text = "Phần mềm";
+            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -217,17 +228,6 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pictureBox1.TabIndex = 5;
             this.pictureBox1.TabStop = false;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("UTM Aristote", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.Orange;
-            this.label1.Location = new System.Drawing.Point(85, -1);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(274, 63);
-            this.label1.TabIndex = 7;
-            this.label1.Text = "Phần mềm";
             // 
             // fLogin
             // 

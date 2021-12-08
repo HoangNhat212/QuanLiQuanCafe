@@ -119,9 +119,7 @@ namespace WindowsFormsApp1.DAO
 
             }
 
-            return data;
-
-            BuiDuchoangnhat
+            return data;           
 
         }
     }
