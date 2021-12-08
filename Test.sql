@@ -275,9 +275,3 @@ go
 
 select*from tablefood
 select*from tablefood
-
-hello abc
-abcđsdfdsgf
-ádafnsdgn
-ghjffgh
-khoa

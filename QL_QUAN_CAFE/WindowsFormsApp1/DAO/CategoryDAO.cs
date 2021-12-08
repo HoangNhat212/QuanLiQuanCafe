@@ -36,7 +36,18 @@ namespace WindowsFormsApp1.DAO
 
             return list;
         }
-
+        public Category GetCategoryByID(int id)
+        {
+            Category category = null;
+            string query = "Select*from FOODCATEGORY where id= "+id;
+            DataTable data = DataProvider.Instance.ExecuteQuery(query);
+            foreach(DataRow item in data.Rows)
+            {
+                category = new Category(item);
+                return category;
+            }
+            return category;
+        }
 
     }
 }
