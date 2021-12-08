@@ -18,7 +18,7 @@ namespace WindowsFormsApp1.DAO
         }
 
         private DataProvider() { }
-        private string connectionSTR = @"Data Source=ik-pc\sqlexpress;Initial Catalog=Test;Integrated Security=True";
+        private string connectionSTR = @"Data Source=desktop-qch0v0c;Initial Catalog=Test;Integrated Security=True";
 
         public DataTable ExecuteQuery(string query, object[] parameter = null)
         {

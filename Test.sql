@@ -351,7 +351,7 @@ end
 go
 ------------------------------------------------------
 ----------Thay đổi thông tin tài khoản----------------
-CREATE PROC USP_UpdateAccount
+alter PROC USP_UpdateAccount
 @userName NVARCHAR(100), @displayName NVARCHAR(100), @password NVARCHAR(100), @newPassword NVARCHAR(100)
 AS
 BEGIN
