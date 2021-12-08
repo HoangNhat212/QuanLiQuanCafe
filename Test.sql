@@ -87,7 +87,7 @@ begin
 end
 select*from TABLEFOOD
 
-Create proc USP_GetTableList
+create proc USP_GetTableList
 as select * from dbo.TABLEFOOD
 go
 update  dbo.TABLEFOOD set status =1 where ID= 2
@@ -161,21 +161,17 @@ CREATE PROC USP_InsertBill
 AS
 BEGIN
 	INSERT dbo. Bill
-
-		(
-		DateCheckIn,
-
+		(DateCheckIn,
 		DateCheckOut,
-
 		idTable,
-
-		status
+		status,
+		discount
 		)
-
 	VALUES ( GETDATE(),
 			NULL,
 			@idTable,
-			0 )
+			0,
+			0)
 END
 GO
 
@@ -187,7 +183,7 @@ begin
 end
 go
 
-ALTER PROC USP_InsertBillInfo 
+create PROC USP_InsertBillInfo 
 @idBill INT, @idFood INT, @count INT
 AS
 BEGIN
@@ -210,7 +206,6 @@ BEGIN
 	BEGIN
 		INSERT dbo.BillInfo
 				(idBill, idFood, count)
-
 		VALUES (@idBill, -- idBill -- int
 				@idFood, -- idFood - int
 				@count -- count - int
@@ -234,7 +229,18 @@ BEGIN
 	DECLARE @idTable INT
 	SELECT @idTable=idTable FROM dbo.BILL WHERE id=@idBill and status=0
 
-	update dbo.TABLEFOOD SET STATUS=1 WHERE ID=@idTable
+	DECLARE @count INT
+	SELECT @count = COUNT(*) FROM dbo.BillInfo WHERE idBill = @idBill
+
+	IF (@count > 0)
+	BEGIN
+		UPDATE dbo.TableFood SET status = 1 WHERE id = @idTable
+	END	
+	
+	ELSE
+	BEGIN
+		UPDATE dbo.TableFood SET status = 0 WHERE id = @idTable
+	END
 END
 GO
 
@@ -244,12 +250,13 @@ as
 begin
 	DECLARE @idBill int
 	SELECT @idBill =id FROM inserted 
-
 	
 	DECLARE @idTable INT
 	SELECT @idTable=idTable FROM dbo.BILL WHERE id=@idBill 
+
 	DECLARE @count int=0
 	SELECT @count=COUNT(*) FROM dbo.BILL WHERE idTable=@idTable and status=0
+
 	IF(@count=0)
 		UPDATE dbo.TABLEFOOD SET STATUS=0
 
@@ -261,17 +268,106 @@ as
 begin
 	DECLARE @idBill int
 	SELECT @idBill =id FROM inserted 
-
 	
 	DECLARE @idTable INT
 	SELECT @idTable=idTable FROM dbo.BILL WHERE id=@idBill 
+
 	DECLARE @count int=0
 	SELECT @count=COUNT(*) FROM dbo.BILL WHERE idTable=@idTable and status=0
+
 	IF(@count=0)
 		UPDATE dbo.TABLEFOOD SET STATUS=0 WHERE ID=@idTable
-
 end
 go
 
-select*from tablefood
-select*from tablefood
+----
+alter table dbo.BILL
+add discount int
+
+update dbo.BILL set discount = 0
+----
+
+------Chuyển bàn------------------------------
+create proc USP_SwitchTable
+@idTable1 int , @idTable2 int
+as begin 
+		declare @idFirstBill int
+		declare @idSecondBill int
+
+		DECLARE @isFirstTablEmty INT = 1
+		DECLARE @isSecondTablEmty INT = 1
+
+		select @idSecondBill = id from dbo.BILL where idTable=@idTable2 and status = 0 
+		select @idFirstBill = id from dbo.BILL where idTable=@idTable1 and status = 0
+
+		if (@idFirstBill is null)
+		begin			
+				insert dbo.BILL
+							(DATECHECKIN,
+							 DATECHECKOUT,
+							 IDTABLE,
+							 STATUS
+							 )
+				values ( GETDATE(),
+						NULL,
+						@idTable1,
+						0)
+				select @idFirstBill = max(id) from dbo.BILL where idTable=@idTable1 and status = 0
+		end
+
+		SELECT @isFirstTablEmty = COUNT(*) FROM dbo.BillInfo WHERE idBill = @idFirstBill
+
+		if (@idSecondBill is null)
+		begin			
+				insert dbo.BILL
+							(DATECHECKIN,
+							 DATECHECKOUT,
+							 IDTABLE,
+							 STATUS
+							 )
+				values ( GETDATE(),
+						NULL,
+						@idTable2,
+						0)
+				select @idSecondBill = max(id) from dbo.BILL where idTable=@idTable2 and status = 0
+		end
+
+		SELECT @isSecondTablEmty = COUNT(*) FROM dbo.BillInfo WHERE idBill = @idSecondBill
+
+		select id into IDBillInfoTable from dbo.BILLINFO where idBill = @idSecondBill
+
+		update dbo.BILLINFO set idBill = @idSecondBill where idBill = @idFirstBill
+
+		update dbo.BILLINFO set idBill = @idFirstBill where id in (select * from IDBillInfoTable)	
+
+		IF (@isFirstTablEmty = 0)
+			UPDATE dbo.TableFood SET status = 0 WHERE id = @idTable2
+		
+		IF (@isSecondTablEmty= 0)
+			UPDATE dbo.TableFood SET status = 0 WHERE id = @idTable1
+
+		drop table IDBillInfoTable
+end
+go
+------------------------------------------------------
+----------Thay đổi thông tin tài khoản----------------
+CREATE PROC USP_UpdateAccount
+@userName NVARCHAR(100), @displayName NVARCHAR(100), @password NVARCHAR(100), @newPassword NVARCHAR(100)
+AS
+BEGIN
+	DECLARE @isRightPass INT = 0
+	
+	SELECT @isRightPass = COUNT(*) FROM dbo.Account WHERE USERName = @userName AND PassWord = @password
+	
+	IF (@isRightPass = 1)
+	BEGIN
+		IF (@newPassword = NULL OR @newPassword = '')
+		BEGIN
+			UPDATE dbo.Account SET DisplayName = @displayName WHERE UserName = @userName
+		END		
+		ELSE
+			UPDATE dbo.Account SET DisplayName = @displayName, PassWord = @newPassword WHERE UserName = @userName
+	end
+END
+GO
+-----------------------------------------------------

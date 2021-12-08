@@ -4,10 +4,11 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using WindowsFormsApp1.DTO;
 
 namespace WindowsFormsApp1.DAO
 {
-    class AccountDAO
+    public class AccountDAO
     {
         private static AccountDAO instance;
 
@@ -26,6 +27,24 @@ namespace WindowsFormsApp1.DAO
             DataTable result = DataProvider.Instance.ExecuteQuery(query,new object[]{userName, passWord});
 
             return result.Rows.Count > 0;
+        }
+
+        public bool UpdateAccount(string userName, string displayName, string pass, string newPass)
+        {
+            int result = DataProvider.Instance.ExecuteNonQuery("exec USP_UpdateAccount @userName , @displayName , @password , @newPassword", new object[] { userName, displayName, pass, newPass });
+
+            return result > 0;
+        }
+
+        public Account GetAccountByUserName(string userName)
+        {
+            DataTable data = DataProvider.Instance.ExecuteQuery("select * from account where userName = '" + userName + "'");
+
+            foreach (DataRow item in data.Rows)
+            {
+                return new Account(item);
+            }
+            return null;
         }
     }
 }

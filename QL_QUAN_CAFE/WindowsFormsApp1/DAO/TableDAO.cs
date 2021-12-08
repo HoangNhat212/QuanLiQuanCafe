@@ -10,8 +10,7 @@ namespace WindowsFormsApp1.DAO
 {
     public class TableDAO
     {
-        public static int TableWidth=90;
-
+        public static int TableWidth = 90;
         public static int TableHeight = 90;
         private static TableDAO instance;
 
@@ -20,6 +19,14 @@ namespace WindowsFormsApp1.DAO
             get { if (instance == null) instance = new TableDAO(); return TableDAO.instance; }
             private set { TableDAO.instance = value; }
         }
+
+        private TableDAO() { }
+
+        public void SwitchTable(int id1, int id2)
+        {
+            DataProvider.Instance.ExecuteQuery("USP_SwitchTable @idTable1 , @idTable2", new object[] { id1, id2 });
+        } 
+
         public List<Table> LoadTableList()
         {
             List<Table> tableList = new List<Table>();
