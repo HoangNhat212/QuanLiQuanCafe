@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using WindowsFormsApp1.DAO;
+using WindowsFormsApp1.DTO;
 
 namespace WindowsFormsApp1
 {
@@ -24,16 +25,16 @@ namespace WindowsFormsApp1
             string passWord = txbPassWord.Text;
             if (Login(userName, passWord))
             {
-                fTableManager f = new fTableManager();
+                Account loginAccount = AccountDAO.Instance.GetAccountByUserName(userName);
+                fTableManager f = new fTableManager(loginAccount);                
                 this.Hide();
                 f.ShowDialog();
                 this.Show();
             }
             else
             {
-                MessageBox.Show("Sai tên tài khoản hoặc mật khẩu!");
+                MessageBox.Show("Sai tên tài khoản hoặc mật khẩu!","Error",MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
         }
 
         bool Login(string userName, string passWord)

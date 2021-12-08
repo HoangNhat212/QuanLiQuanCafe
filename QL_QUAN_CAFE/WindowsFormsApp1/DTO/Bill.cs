@@ -14,12 +14,14 @@ namespace WindowsFormsApp1.DTO
         private DateTime? dateCheckin;
         private DateTime? dateCheckOut;
         private int status;
-        public Bill(int id,DateTime? dateCheckin,DateTime? dateCheckOut,int status)
+        private int discount;
+        public Bill(int id,DateTime? dateCheckin,DateTime? dateCheckOut,int status, int discount = 0)
         {
             this.Id = id;
             this.DateCheckin = dateCheckin;
             this.DateCheckOut = dateCheckOut;
             this.Status = status;
+            this.Discount = discount;
         }
         public Bill(DataRow row)
         {
@@ -29,9 +31,10 @@ namespace WindowsFormsApp1.DTO
             if (dateCheckOutTemp.ToString() != "")
             {
                 this.DateCheckOut = (DateTime)dateCheckOutTemp;
-            }
-         
+            }        
             this.Status = (int)row["status"];
+            if (row["discount"].ToString() !="")
+                this.Discount = (int)row["discount"];
         }
        
 
@@ -39,5 +42,6 @@ namespace WindowsFormsApp1.DTO
         public DateTime? DateCheckOut { get => dateCheckOut; set => dateCheckOut = value; }
         public int Status { get => status; set => status = value; }
         public int Id { get => id; set => id = value; }
+        public int Discount { get => discount; set => discount = value; }
     }
 }

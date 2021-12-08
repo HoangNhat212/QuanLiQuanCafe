@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Globalization;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -15,15 +16,34 @@ namespace WindowsFormsApp1
 {
     public partial class fTableManager : Form
     {
-        public fTableManager()
+        //Tạo thư viện user32.DLL để kéo thả di chuyển form
+        [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
+        private extern static void ReleaseCapture();
+        [DllImport("user32.DLL", EntryPoint = "SendMessage")]
+        private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int lParam);
+        //
+
+        private Account loginAccount;
+
+        public Account LoginAccount { get => loginAccount; set { loginAccount = value; ChangeAccount(loginAccount.Type); } }
+
+        public fTableManager(Account acc)
         {
             InitializeComponent();
+            this.LoginAccount = acc;
             label1.Text ="   " + DateTime.Now.ToString();
             LoadTable();
             LoadCategory();
+            LoadComboboxTable(cbSwitchTable);
             
         }
         #region Method
+
+        void ChangeAccount(int type)
+        {
+            btnOpenFormAdmin.Enabled = type == 1;
+            lblDispalyName.Text = "(" + LoginAccount.DisplayName + ")";
+        }
 
         void LoadCategory()
         {
@@ -87,6 +107,12 @@ namespace WindowsFormsApp1
             txbTotalPrice.Text = totalPrice.ToString("c",culture);
         }
 
+        void LoadComboboxTable (ComboBox cb)
+        {
+            cb.DataSource = TableDAO.Instance.LoadTableList();
+            cb.DisplayMember = "Name";
+        }
+
         #endregion
         #region Event
         private void Btn_Click(object sender, EventArgs e)
@@ -103,12 +129,18 @@ namespace WindowsFormsApp1
         private void btnCheck_Click(object sender, EventArgs e)
         {
             Table table = lsvBill.Tag as Table;
+
             int idBill = BillDAO.Instance.GetUncheckBillIDByTableID(table.ID);
+            int discount = (int)nmDiscount.Value;
+
+            double totalPrice = Convert.ToDouble(txbTotalPrice.Text.Split(',')[0].Replace(".", ""));
+            double finalTotalPrice = totalPrice - (totalPrice / 100) * discount;
+
             if (idBill != -1)
             {
-                if(MessageBox.Show("Bạn có chắc thanh toán hoá đơn cho bàn","Thông báo",MessageBoxButtons.OKCancel)==System.Windows.Forms.DialogResult.OK)
+                if(MessageBox.Show(string.Format("Bạn có chắc thanh toán hoá đơn cho {0}\nTổng tiền - Tổng tiền x Giảm giá\n=>{1} - ({1} x {2}%) = {3}", table.Name,totalPrice,discount,finalTotalPrice),"Thông báo",MessageBoxButtons.OKCancel,MessageBoxIcon.Information)==System.Windows.Forms.DialogResult.OK)
                 {
-                    BillDAO.Instance.CheckOut(idBill);
+                    BillDAO.Instance.CheckOut(idBill, discount);
                     ShowBill(table.ID);
                     LoadTable();
                 }    
@@ -117,8 +149,14 @@ namespace WindowsFormsApp1
         }
         private void btnOpenFormProfile_Click(object sender, EventArgs e)
         {
-            fAccountProfile f = new fAccountProfile();
+            fAccountProfile f = new fAccountProfile(LoginAccount);
+            f.UpdateAccount += f_UpdateAccount;
             f.ShowDialog();
+        }
+
+        void f_UpdateAccount(object sender, AccountEvent e)
+        {
+           lblDispalyName.Text = "(" + e.Acc.DisplayName + ")";
         }
 
         private void btnExit_Click(object sender, EventArgs e)
@@ -147,6 +185,11 @@ namespace WindowsFormsApp1
         private void btnMinimize_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
+        }
+        private void panel2_MouseDown(object sender, MouseEventArgs e)
+        {
+            ReleaseCapture();
+            SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
         private void cbCategory_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -185,8 +228,21 @@ namespace WindowsFormsApp1
             ShowBill(table.ID);
             LoadTable();
         }
+
+        private void btnSwitchTable_Click(object sender, EventArgs e)
+        {
+            int id1 = (lsvBill.Tag as Table).ID;
+            int id2 = (cbSwitchTable.SelectedItem as Table).ID;
+
+            if(MessageBox.Show(String.Format("Bạn có thật sự muốn chuyển {0} qua {1}?", (lsvBill.Tag as Table).Name, (cbSwitchTable.SelectedItem as Table).Name),"Thông báo",MessageBoxButtons.OKCancel,MessageBoxIcon.Question) == System.Windows.Forms.DialogResult.OK)
+            {              
+                    TableDAO.Instance.SwitchTable(id1, id2);
+                    LoadTable();                       
+            }    
+        }
+
         #endregion
 
-        
+
     }
 }
