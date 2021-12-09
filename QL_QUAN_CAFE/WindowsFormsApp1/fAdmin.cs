@@ -18,6 +18,11 @@ namespace WindowsFormsApp1
         private Random random;
         private int tempIndex;
         private Form activeForm;
+
+        public Action<object, EventArgs> InsertFood { get; internal set; }
+        public Action<object, EventArgs> DeleteFood { get; internal set; }
+        public Action<object, EventArgs> UpdateFood { get; internal set; }
+
         //Constructor
         public fAdmin()
         {

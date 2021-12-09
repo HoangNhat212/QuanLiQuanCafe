@@ -28,9 +28,9 @@ namespace WindowsFormsApp1.DAO
             }
             return -1;
         }
-        public void CheckOut(int id, int discount)
+        public void CheckOut(int id, int discount, float totalPrice)
         {
-            string query= "update dbo.BILL set STATUS = 1, " + "discount = " + discount + " where ID = "+id;
+            string query= "update dbo.BILL set dateCheckOut = GETDATE(), STATUS = 1, " + "discount = " + discount + ", totalPrice = " + totalPrice + " where ID = "+id;
             DataProvider.Instance.ExecuteNonQuery(query);
         }
         public void InsertBill(int id)
@@ -49,6 +49,11 @@ namespace WindowsFormsApp1.DAO
             {
                 return 1;
             }
+        }
+
+        public DataTable GetBillListByDate(DateTime checkIn, DateTime checkOut)
+        {
+            return DataProvider.Instance.ExecuteQuery("exec USP_GetListBillByDate @checkIn , @checkOut", new object[] { checkIn, checkOut });
         }
 
     }

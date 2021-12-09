@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WindowsFormsApp1.DAO;
 
 namespace WindowsFormsApp1.FormsInAdmin
 {
@@ -20,6 +21,8 @@ namespace WindowsFormsApp1.FormsInAdmin
         private void FormBill_Load(object sender, EventArgs e)
         {
             LoadTheme();
+            LoadDateTimePickerBill();
+            LoadListBillByDate(dtpkFromDate.Value, dtpkToDate.Value);
         }
         private void LoadTheme()
         {
@@ -28,6 +31,21 @@ namespace WindowsFormsApp1.FormsInAdmin
             btnViewBill.BackColor = ThemeColor.PrimaryColor;
             btnViewBill.ForeColor = Color.White;
             btnViewBill.FlatAppearance.BorderColor = ThemeColor.SecondaryColor;
+        }
+
+        void LoadListBillByDate(DateTime checkIn, DateTime checkOut)
+        {
+            dtgvBill.DataSource = BillDAO.Instance.GetBillListByDate(checkIn, checkOut);
+        }
+        private void btnViewBill_Click(object sender, EventArgs e)
+        {
+            LoadListBillByDate(dtpkFromDate.Value, dtpkToDate.Value);
+        }
+        void LoadDateTimePickerBill()
+        {
+            DateTime today = DateTime.Now;
+            dtpkFromDate.Value = new DateTime(today.Year, today.Month, 1);
+            dtpkToDate.Value = dtpkFromDate.Value.AddMonths(1).AddDays(-1);
         }
     }
 }

@@ -371,3 +371,45 @@ BEGIN
 END
 GO
 -----------------------------------------------------
+
+------Sửa kiểu dữ liệu của datecheckin, datecheckout
+alter table BILL alter column DATECHECKIN DATETIME
+alter table BILL alter column DATECHECKOUT DATETIME
+--------------------------------------------------
+
+-------Thêm cột tổng tiên cho BILL---------
+alter table BILL add totalPrice float
+-------------------------------------------
+
+--------Hiển thị danh sách hóa đơn-------------
+CREATE PROC USP_GetListBillByDate
+@checkIn date, @checkOut date
+AS 
+BEGIN
+	SELECT t.name AS [Tên bàn], b.totalPrice AS [Tổng tiền], DateCheckIn AS [Ngày vào], DateCheckOut AS [Ngày ra], discount AS [Giảm giá]
+	FROM dbo.Bill AS b,dbo.TableFood AS t
+	WHERE DateCheckIn >= @checkIn AND DateCheckOut <= @checkOut AND b.status = 1
+	AND t.id = b.idTable
+END
+GO
+-----------------------------------------------
+create TRIGGER UTG_DeleteBillInfo
+ON dbo.BillInfo FOR DELETE
+AS 
+BEGIN
+	DECLARE @idBillInfo INT
+	DECLARE @idBill INT
+	SELECT @idBillInfo = id, @idBill = Deleted.idBill FROM Deleted
+	
+	DECLARE @idTable INT
+	SELECT @idTable = idTable FROM dbo.Bill WHERE id = @idBill
+	
+	DECLARE @count INT = 0
+	
+	SELECT @count = COUNT(*) FROM dbo.BillInfo AS bi, dbo.Bill AS b WHERE b.id = bi.idBill AND b.id = @idBill AND b.status = 0
+	
+	IF (@count = 0)
+		UPDATE dbo.TableFood SET status = 0 WHERE id = @idTable
+END
+GO
+-----------------------------------------------------
