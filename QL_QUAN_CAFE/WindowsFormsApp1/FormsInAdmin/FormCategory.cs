@@ -7,11 +7,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WindowsFormsApp1.DAO;
 
 namespace WindowsFormsApp1.FormsInAdmin
 {
     public partial class FormCategory : Form
     {
+        BindingSource categoryList = new BindingSource();
         public FormCategory()
         {
             InitializeComponent();
@@ -19,7 +21,10 @@ namespace WindowsFormsApp1.FormsInAdmin
 
         private void FormCategory_Load(object sender, EventArgs e)
         {
+            dtgvCategory.DataSource = categoryList;
             LoadTheme();
+            LoadListCategory();
+            AddCategoryBinding();
         }
         private void LoadTheme()
         {
@@ -38,6 +43,22 @@ namespace WindowsFormsApp1.FormsInAdmin
                 btnShowCategory.ForeColor = Color.White;
                 btnShowCategory.FlatAppearance.BorderColor = ThemeColor.SecondaryColor;
             }
+        }
+
+        void LoadListCategory()
+        {
+            categoryList.DataSource = CategoryDAO.Instance.GetListCategory();
+        }
+
+        void AddCategoryBinding()
+        {
+            txbCategoryName.DataBindings.Add(new Binding("Text", dtgvCategory.DataSource, "Name"));
+            txbCategoryID.DataBindings.Add(new Binding("Text", dtgvCategory.DataSource, "ID"));
+        }
+
+        private void btnShowCategory_Click(object sender, EventArgs e)
+        {
+            LoadListCategory();
         }
     }
 }

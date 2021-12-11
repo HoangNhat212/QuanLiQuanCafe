@@ -129,6 +129,35 @@ namespace WindowsFormsApp1.FormsInAdmin
             }
         }
 
+        private void btnDeleteFood_Click(object sender, EventArgs e)
+        {
+            int id = Convert.ToInt32(txbFoodID.Text);
+
+            if (FoodDAO.Instance.DeleteFood(id))
+            {
+                MessageBox.Show("Xóa món thành công");
+                LoadListFood();
+                if (deleteFood != null)
+                    deleteFood(this, new EventArgs());
+            }
+            else
+            {
+                MessageBox.Show("Có lỗi khi xóa thức ăn");
+            }
+        }
+
+        List<Food> SearchFoodByName(string name)
+        {
+            List<Food> listFood = FoodDAO.Instance.SearchFoodByName(name);
+
+            return listFood;
+        }
+
+        private void btnSearchFood_Click(object sender, EventArgs e)
+        {
+            foodList.DataSource = SearchFoodByName(txbSearchFoodName.Text);
+        }
+
         private event EventHandler insertFood;
         public event EventHandler InsertFood
         {
@@ -148,23 +177,6 @@ namespace WindowsFormsApp1.FormsInAdmin
         {
             add { updateFood += value; }
             remove { updateFood -= value; }
-        }
-
-        private void btnDeleteFood_Click(object sender, EventArgs e)
-        {
-            int id = Convert.ToInt32(txbFoodID.Text);
-
-            if (FoodDAO.Instance.DeleteFood(id))
-            {
-                MessageBox.Show("Xóa món thành công");
-                LoadListFood();
-                if (deleteFood != null)
-                    deleteFood(this, new EventArgs());
-            }
-            else
-            {
-                MessageBox.Show("Có lỗi khi xóa thức ăn");
-            }
-        }
+        }     
     }
 }

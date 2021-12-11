@@ -107,6 +107,7 @@ namespace WindowsFormsApp1.FormsInAdmin
             this.btnSearchFood.TabIndex = 0;
             this.btnSearchFood.Text = "Tìm";
             this.btnSearchFood.UseVisualStyleBackColor = true;
+            this.btnSearchFood.Click += new System.EventHandler(this.btnSearchFood_Click);
             // 
             // panel5
             // 

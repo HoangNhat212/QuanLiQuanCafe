@@ -40,7 +40,7 @@ namespace WindowsFormsApp1.FormsInAdmin
             this.txbCategoryName = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.panel16 = new System.Windows.Forms.Panel();
-            this.tbCategoryID = new System.Windows.Forms.TextBox();
+            this.txbCategoryID = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.panel17.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvCategory)).BeginInit();
@@ -74,6 +74,7 @@ namespace WindowsFormsApp1.FormsInAdmin
             this.btnShowCategory.TabIndex = 0;
             this.btnShowCategory.Text = "Xem";
             this.btnShowCategory.UseVisualStyleBackColor = true;
+            this.btnShowCategory.Click += new System.EventHandler(this.btnShowCategory_Click);
             // 
             // btnEditCategory
             // 
@@ -172,7 +173,7 @@ namespace WindowsFormsApp1.FormsInAdmin
             // 
             // panel16
             // 
-            this.panel16.Controls.Add(this.tbCategoryID);
+            this.panel16.Controls.Add(this.txbCategoryID);
             this.panel16.Controls.Add(this.label8);
             this.panel16.Location = new System.Drawing.Point(2, 11);
             this.panel16.Margin = new System.Windows.Forms.Padding(2);
@@ -180,16 +181,16 @@ namespace WindowsFormsApp1.FormsInAdmin
             this.panel16.Size = new System.Drawing.Size(319, 37);
             this.panel16.TabIndex = 1;
             // 
-            // tbCategoryID
+            // txbCategoryID
             // 
-            this.tbCategoryID.BackColor = System.Drawing.SystemColors.Window;
-            this.tbCategoryID.Font = new System.Drawing.Font("UTM Androgyne", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbCategoryID.Location = new System.Drawing.Point(126, 9);
-            this.tbCategoryID.Margin = new System.Windows.Forms.Padding(2);
-            this.tbCategoryID.Name = "tbCategoryID";
-            this.tbCategoryID.ReadOnly = true;
-            this.tbCategoryID.Size = new System.Drawing.Size(191, 23);
-            this.tbCategoryID.TabIndex = 1;
+            this.txbCategoryID.BackColor = System.Drawing.SystemColors.Window;
+            this.txbCategoryID.Font = new System.Drawing.Font("UTM Androgyne", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txbCategoryID.Location = new System.Drawing.Point(126, 9);
+            this.txbCategoryID.Margin = new System.Windows.Forms.Padding(2);
+            this.txbCategoryID.Name = "txbCategoryID";
+            this.txbCategoryID.ReadOnly = true;
+            this.txbCategoryID.Size = new System.Drawing.Size(191, 23);
+            this.txbCategoryID.TabIndex = 1;
             // 
             // label8
             // 
@@ -241,7 +242,7 @@ namespace WindowsFormsApp1.FormsInAdmin
         private System.Windows.Forms.TextBox txbCategoryName;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Panel panel16;
-        private System.Windows.Forms.TextBox tbCategoryID;
+        private System.Windows.Forms.TextBox txbCategoryID;
         private System.Windows.Forms.Label label8;
     }
 }

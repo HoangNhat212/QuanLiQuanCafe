@@ -36,6 +36,7 @@ namespace WindowsFormsApp1.DAO
 
             return list;
         }
+
         public Category GetCategoryByID(int id)
         {
             Category category = null;

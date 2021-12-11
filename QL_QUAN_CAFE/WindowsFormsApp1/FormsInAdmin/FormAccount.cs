@@ -50,6 +50,5 @@ namespace WindowsFormsApp1.FormsInAdmin
 
             dtgvAccount.DataSource = DataProvider.Instance.ExecuteQuery(query, new object[] { "staff"});
         }
-
     }
 }
