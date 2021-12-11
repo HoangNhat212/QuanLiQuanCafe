@@ -31,7 +31,7 @@ namespace WindowsFormsApp1
         {
             InitializeComponent();
             this.LoginAccount = acc;
-            label1.Text ="   " + DateTime.Now.ToString();
+            label1.Text ="    " + DateTime.Now.ToString();
             LoadTable();
             LoadCategory();
             LoadComboboxTable(cbSwitchTable);
@@ -154,6 +154,12 @@ namespace WindowsFormsApp1
         {
             Table table = lsvBill.Tag as Table;
 
+            if (table == null)
+            {
+                MessageBox.Show("Hãy chọn bàn");
+                return;
+            }
+
             int idBill = BillDAO.Instance.GetUncheckBillIDByTableID(table.ID);
             int discount = (int)nmDiscount.Value;
 
@@ -190,7 +196,7 @@ namespace WindowsFormsApp1
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            label1.Text ="   " + DateTime.Now.ToString();
+            label1.Text ="    " + DateTime.Now.ToString();
         }
 
         private void btnMaximize_Click(object sender, EventArgs e)
@@ -270,6 +276,18 @@ namespace WindowsFormsApp1
                     LoadTable();                       
             }    
         }
+
+        private void fTableManager_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.Control)
+            {
+                if (e.KeyCode.Equals(Keys.T))
+                {
+                    btnCheck_Click(this, new EventArgs());
+                }
+            }
+        }
+
 
         #endregion
 

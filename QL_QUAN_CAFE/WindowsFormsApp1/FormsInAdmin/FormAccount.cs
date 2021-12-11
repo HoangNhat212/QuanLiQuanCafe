@@ -20,17 +20,17 @@ namespace WindowsFormsApp1.FormsInAdmin
         public FormAccount()
         {
             InitializeComponent();
-            LoadTheme();
             dtgvAccount.DataSource = AccountList;
             //LoadAcountList();
             AddAccountBinding();
             LoadAccount();
         }
 
-        //private void FormAccount_Load(object sender, EventArgs e)
-        //{
-        //    LoadTheme();
-        //}
+        private void FormAccount_Load(object sender, EventArgs e)
+        {
+            LoadTheme();
+        }
+
         private void LoadTheme()
         {
             btnAddAccount.BackColor = ThemeColor.PrimaryColor;
@@ -150,5 +150,7 @@ namespace WindowsFormsApp1.FormsInAdmin
 
             ResetPass(userName);
         }
+
+
     }
 }

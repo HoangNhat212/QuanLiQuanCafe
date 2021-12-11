@@ -35,6 +35,7 @@ namespace WindowsFormsApp1.DAO
 
             return list;
         }
+
         public List<Food> GetListFood()
         {
             List<Food> list = new List<Food>();

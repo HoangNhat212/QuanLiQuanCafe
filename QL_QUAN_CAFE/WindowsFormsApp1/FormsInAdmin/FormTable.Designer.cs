@@ -125,9 +125,9 @@ namespace WindowsFormsApp1.FormsInAdmin
             this.label5.Location = new System.Drawing.Point(-4, 9);
             this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(113, 23);
+            this.label5.Size = new System.Drawing.Size(92, 23);
             this.label5.TabIndex = 0;
-            this.label5.Text = "Tên danh mục:";
+            this.label5.Text = "Tên bàn ăn:";
             // 
             // panel14
             // 
@@ -187,6 +187,7 @@ namespace WindowsFormsApp1.FormsInAdmin
             this.btnShowTable.TabIndex = 0;
             this.btnShowTable.Text = "Xem";
             this.btnShowTable.UseVisualStyleBackColor = true;
+            this.btnShowTable.Click += new System.EventHandler(this.btnShowTable_Click);
             // 
             // btnEditTable
             // 

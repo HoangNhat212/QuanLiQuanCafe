@@ -26,6 +26,7 @@ namespace WindowsFormsApp1.FormsInAdmin
             LoadListCategory();
             AddCategoryBinding();
         }
+
         private void LoadTheme()
         {
             foreach (Control btns in this.Controls)
