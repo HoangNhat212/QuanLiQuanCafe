@@ -32,7 +32,7 @@ namespace WindowsFormsApp1.FormsInAdmin
             this.panel23 = new System.Windows.Forms.Panel();
             this.btnResetPassword = new System.Windows.Forms.Button();
             this.panel22 = new System.Windows.Forms.Panel();
-            this.cbAccountType = new System.Windows.Forms.ComboBox();
+            this.nmType = new System.Windows.Forms.NumericUpDown();
             this.label10 = new System.Windows.Forms.Label();
             this.panel26 = new System.Windows.Forms.Panel();
             this.txbDisplayName = new System.Windows.Forms.TextBox();
@@ -48,6 +48,7 @@ namespace WindowsFormsApp1.FormsInAdmin
             this.dtgvAccount = new System.Windows.Forms.DataGridView();
             this.panel23.SuspendLayout();
             this.panel22.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nmType)).BeginInit();
             this.panel26.SuspendLayout();
             this.panel27.SuspendLayout();
             this.panel28.SuspendLayout();
@@ -63,52 +64,52 @@ namespace WindowsFormsApp1.FormsInAdmin
             this.panel23.Controls.Add(this.panel22);
             this.panel23.Controls.Add(this.panel26);
             this.panel23.Controls.Add(this.panel27);
-            this.panel23.Location = new System.Drawing.Point(11, 61);
-            this.panel23.Margin = new System.Windows.Forms.Padding(2);
+            this.panel23.Location = new System.Drawing.Point(16, 94);
             this.panel23.Name = "panel23";
-            this.panel23.Size = new System.Drawing.Size(323, 411);
+            this.panel23.Size = new System.Drawing.Size(484, 632);
             this.panel23.TabIndex = 9;
             // 
             // btnResetPassword
             // 
             this.btnResetPassword.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnResetPassword.Font = new System.Drawing.Font("UTM Androgyne", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnResetPassword.Location = new System.Drawing.Point(131, 162);
-            this.btnResetPassword.Margin = new System.Windows.Forms.Padding(2);
+            this.btnResetPassword.Location = new System.Drawing.Point(196, 249);
             this.btnResetPassword.Name = "btnResetPassword";
-            this.btnResetPassword.Size = new System.Drawing.Size(189, 41);
+            this.btnResetPassword.Size = new System.Drawing.Size(284, 63);
             this.btnResetPassword.TabIndex = 0;
             this.btnResetPassword.Text = "Đặt lại mật khẩu";
             this.btnResetPassword.UseVisualStyleBackColor = true;
+            this.btnResetPassword.Click += new System.EventHandler(this.btnResetPassword_Click);
             // 
             // panel22
             // 
-            this.panel22.Controls.Add(this.cbAccountType);
+            this.panel22.Controls.Add(this.nmType);
             this.panel22.Controls.Add(this.label10);
-            this.panel22.Location = new System.Drawing.Point(2, 109);
-            this.panel22.Margin = new System.Windows.Forms.Padding(2);
+            this.panel22.Location = new System.Drawing.Point(3, 168);
             this.panel22.Name = "panel22";
-            this.panel22.Size = new System.Drawing.Size(319, 37);
+            this.panel22.Size = new System.Drawing.Size(478, 57);
             this.panel22.TabIndex = 1;
             // 
-            // cbAccountType
+            // nmType
             // 
-            this.cbAccountType.Font = new System.Drawing.Font("UTM Androgyne", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbAccountType.FormattingEnabled = true;
-            this.cbAccountType.Location = new System.Drawing.Point(128, 9);
-            this.cbAccountType.Name = "cbAccountType";
-            this.cbAccountType.Size = new System.Drawing.Size(190, 23);
-            this.cbAccountType.TabIndex = 1;
+            this.nmType.Location = new System.Drawing.Point(193, 21);
+            this.nmType.Maximum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.nmType.Name = "nmType";
+            this.nmType.Size = new System.Drawing.Size(57, 26);
+            this.nmType.TabIndex = 1;
             // 
             // label10
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("UTM Androgyne", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.ForeColor = System.Drawing.Color.Black;
-            this.label10.Location = new System.Drawing.Point(-4, 9);
-            this.label10.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label10.Location = new System.Drawing.Point(-6, 14);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(119, 23);
+            this.label10.Size = new System.Drawing.Size(181, 34);
             this.label10.TabIndex = 0;
             this.label10.Text = "Loại tài khoản:";
             // 
@@ -116,19 +117,17 @@ namespace WindowsFormsApp1.FormsInAdmin
             // 
             this.panel26.Controls.Add(this.txbDisplayName);
             this.panel26.Controls.Add(this.label12);
-            this.panel26.Location = new System.Drawing.Point(2, 59);
-            this.panel26.Margin = new System.Windows.Forms.Padding(2);
+            this.panel26.Location = new System.Drawing.Point(3, 91);
             this.panel26.Name = "panel26";
-            this.panel26.Size = new System.Drawing.Size(319, 37);
+            this.panel26.Size = new System.Drawing.Size(478, 57);
             this.panel26.TabIndex = 1;
             // 
             // txbDisplayName
             // 
             this.txbDisplayName.Font = new System.Drawing.Font("UTM Androgyne", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txbDisplayName.Location = new System.Drawing.Point(128, 9);
-            this.txbDisplayName.Margin = new System.Windows.Forms.Padding(2);
+            this.txbDisplayName.Location = new System.Drawing.Point(192, 14);
             this.txbDisplayName.Name = "txbDisplayName";
-            this.txbDisplayName.Size = new System.Drawing.Size(189, 23);
+            this.txbDisplayName.Size = new System.Drawing.Size(282, 31);
             this.txbDisplayName.TabIndex = 1;
             // 
             // label12
@@ -136,10 +135,9 @@ namespace WindowsFormsApp1.FormsInAdmin
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("UTM Androgyne", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label12.ForeColor = System.Drawing.Color.Black;
-            this.label12.Location = new System.Drawing.Point(-4, 9);
-            this.label12.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label12.Location = new System.Drawing.Point(-6, 14);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(98, 23);
+            this.label12.Size = new System.Drawing.Size(148, 34);
             this.label12.TabIndex = 0;
             this.label12.Text = "Tên hiển thị:";
             // 
@@ -147,21 +145,18 @@ namespace WindowsFormsApp1.FormsInAdmin
             // 
             this.panel27.Controls.Add(this.txbUserName);
             this.panel27.Controls.Add(this.label13);
-            this.panel27.Location = new System.Drawing.Point(2, 11);
-            this.panel27.Margin = new System.Windows.Forms.Padding(2);
+            this.panel27.Location = new System.Drawing.Point(3, 17);
             this.panel27.Name = "panel27";
-            this.panel27.Size = new System.Drawing.Size(319, 37);
+            this.panel27.Size = new System.Drawing.Size(478, 57);
             this.panel27.TabIndex = 1;
             // 
             // txbUserName
             // 
             this.txbUserName.BackColor = System.Drawing.SystemColors.Window;
             this.txbUserName.Font = new System.Drawing.Font("UTM Androgyne", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txbUserName.Location = new System.Drawing.Point(128, 8);
-            this.txbUserName.Margin = new System.Windows.Forms.Padding(2);
+            this.txbUserName.Location = new System.Drawing.Point(192, 12);
             this.txbUserName.Name = "txbUserName";
-            this.txbUserName.ReadOnly = true;
-            this.txbUserName.Size = new System.Drawing.Size(189, 23);
+            this.txbUserName.Size = new System.Drawing.Size(282, 31);
             this.txbUserName.TabIndex = 1;
             // 
             // label13
@@ -169,10 +164,9 @@ namespace WindowsFormsApp1.FormsInAdmin
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("UTM Androgyne", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label13.ForeColor = System.Drawing.Color.Black;
-            this.label13.Location = new System.Drawing.Point(-4, 8);
-            this.label13.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label13.Location = new System.Drawing.Point(-6, 12);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(111, 23);
+            this.label13.Size = new System.Drawing.Size(169, 34);
             this.label13.TabIndex = 0;
             this.label13.Text = "Tên tài khoản:";
             // 
@@ -184,59 +178,58 @@ namespace WindowsFormsApp1.FormsInAdmin
             this.panel28.Controls.Add(this.btnEditAccount);
             this.panel28.Controls.Add(this.btnDeleteAccount);
             this.panel28.Controls.Add(this.btnAddAccount);
-            this.panel28.Location = new System.Drawing.Point(409, 11);
-            this.panel28.Margin = new System.Windows.Forms.Padding(2);
+            this.panel28.Location = new System.Drawing.Point(614, 17);
             this.panel28.Name = "panel28";
-            this.panel28.Size = new System.Drawing.Size(380, 46);
+            this.panel28.Size = new System.Drawing.Size(570, 71);
             this.panel28.TabIndex = 8;
             // 
             // btnShowAccount
             // 
             this.btnShowAccount.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnShowAccount.Font = new System.Drawing.Font("UTM Androgyne", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnShowAccount.Location = new System.Drawing.Point(300, 2);
-            this.btnShowAccount.Margin = new System.Windows.Forms.Padding(2);
+            this.btnShowAccount.Location = new System.Drawing.Point(450, 3);
             this.btnShowAccount.Name = "btnShowAccount";
-            this.btnShowAccount.Size = new System.Drawing.Size(77, 41);
+            this.btnShowAccount.Size = new System.Drawing.Size(116, 63);
             this.btnShowAccount.TabIndex = 0;
             this.btnShowAccount.Text = "Xem";
             this.btnShowAccount.UseVisualStyleBackColor = true;
+            this.btnShowAccount.Click += new System.EventHandler(this.btnShowAccount_Click);
             // 
             // btnEditAccount
             // 
             this.btnEditAccount.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEditAccount.Font = new System.Drawing.Font("UTM Androgyne", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEditAccount.Location = new System.Drawing.Point(202, 2);
-            this.btnEditAccount.Margin = new System.Windows.Forms.Padding(2);
+            this.btnEditAccount.Location = new System.Drawing.Point(303, 3);
             this.btnEditAccount.Name = "btnEditAccount";
-            this.btnEditAccount.Size = new System.Drawing.Size(77, 41);
+            this.btnEditAccount.Size = new System.Drawing.Size(116, 63);
             this.btnEditAccount.TabIndex = 0;
             this.btnEditAccount.Text = "Sửa";
             this.btnEditAccount.UseVisualStyleBackColor = true;
+            this.btnEditAccount.Click += new System.EventHandler(this.btnEditAccount_Click);
             // 
             // btnDeleteAccount
             // 
             this.btnDeleteAccount.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDeleteAccount.Font = new System.Drawing.Font("UTM Androgyne", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDeleteAccount.Location = new System.Drawing.Point(100, 2);
-            this.btnDeleteAccount.Margin = new System.Windows.Forms.Padding(2);
+            this.btnDeleteAccount.Location = new System.Drawing.Point(150, 3);
             this.btnDeleteAccount.Name = "btnDeleteAccount";
-            this.btnDeleteAccount.Size = new System.Drawing.Size(77, 41);
+            this.btnDeleteAccount.Size = new System.Drawing.Size(116, 63);
             this.btnDeleteAccount.TabIndex = 0;
             this.btnDeleteAccount.Text = "Xóa";
             this.btnDeleteAccount.UseVisualStyleBackColor = true;
+            this.btnDeleteAccount.Click += new System.EventHandler(this.btnDeleteAccount_Click);
             // 
             // btnAddAccount
             // 
             this.btnAddAccount.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAddAccount.Font = new System.Drawing.Font("UTM Androgyne", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddAccount.Location = new System.Drawing.Point(2, 2);
-            this.btnAddAccount.Margin = new System.Windows.Forms.Padding(2);
+            this.btnAddAccount.Location = new System.Drawing.Point(3, 3);
             this.btnAddAccount.Name = "btnAddAccount";
-            this.btnAddAccount.Size = new System.Drawing.Size(77, 41);
+            this.btnAddAccount.Size = new System.Drawing.Size(116, 63);
             this.btnAddAccount.TabIndex = 0;
             this.btnAddAccount.Text = "Thêm";
             this.btnAddAccount.UseVisualStyleBackColor = true;
+            this.btnAddAccount.Click += new System.EventHandler(this.btnAddAccount_Click);
             // 
             // dtgvAccount
             // 
@@ -245,32 +238,32 @@ namespace WindowsFormsApp1.FormsInAdmin
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dtgvAccount.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dtgvAccount.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtgvAccount.Location = new System.Drawing.Point(409, 61);
-            this.dtgvAccount.Margin = new System.Windows.Forms.Padding(2);
+            this.dtgvAccount.Location = new System.Drawing.Point(614, 94);
             this.dtgvAccount.Name = "dtgvAccount";
             this.dtgvAccount.RowHeadersWidth = 51;
             this.dtgvAccount.RowTemplate.Height = 24;
-            this.dtgvAccount.Size = new System.Drawing.Size(380, 411);
+            this.dtgvAccount.Size = new System.Drawing.Size(570, 632);
             this.dtgvAccount.TabIndex = 7;
             // 
             // FormAccount
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::WindowsFormsApp1.Properties.Resources.bground__2_;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(800, 476);
+            this.ClientSize = new System.Drawing.Size(1200, 732);
             this.Controls.Add(this.panel23);
             this.Controls.Add(this.panel28);
             this.Controls.Add(this.dtgvAccount);
             this.DoubleBuffered = true;
             this.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "FormAccount";
             this.Text = "Tài khoản";
-            this.Load += new System.EventHandler(this.FormAccount_Load);
             this.panel23.ResumeLayout(false);
             this.panel22.ResumeLayout(false);
             this.panel22.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nmType)).EndInit();
             this.panel26.ResumeLayout(false);
             this.panel26.PerformLayout();
             this.panel27.ResumeLayout(false);
@@ -286,7 +279,6 @@ namespace WindowsFormsApp1.FormsInAdmin
         private System.Windows.Forms.Panel panel23;
         private System.Windows.Forms.Button btnResetPassword;
         private System.Windows.Forms.Panel panel22;
-        private System.Windows.Forms.ComboBox cbAccountType;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Panel panel26;
         private System.Windows.Forms.TextBox txbDisplayName;
@@ -300,5 +292,6 @@ namespace WindowsFormsApp1.FormsInAdmin
         private System.Windows.Forms.Button btnDeleteAccount;
         private System.Windows.Forms.Button btnAddAccount;
         private System.Windows.Forms.DataGridView dtgvAccount;
+        private System.Windows.Forms.NumericUpDown nmType;
     }
 }

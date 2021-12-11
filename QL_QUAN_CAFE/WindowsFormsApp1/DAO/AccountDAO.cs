@@ -46,5 +46,38 @@ namespace WindowsFormsApp1.DAO
             }
             return null;
         }
+        public DataTable getListAccount()
+        {
+            return DataProvider.Instance.ExecuteQuery("SELECT USERNAME,DISPLAYNAME,TYPE FROM ACCOUNT");
+        }
+        public bool InsertAccount(string userName, string displayName, int Type)
+        {
+            string query = string.Format("INSERT dbo.Account ( UserName, DisplayName, Type )VALUES  ( N'{0}', N'{1}', {2})", userName, displayName, Type);
+            int result = DataProvider.Instance.ExecuteNonQuery(query);
+            return result > 0;
+        }
+
+        public bool UpdateAccount(string userName, string displayName, int Type)
+        {
+            string query = string.Format("update ACCOUNT set DISPLAYNAME=N'{1}',TYPE={2} where USERNAME=N'{0}'", userName, displayName, Type);
+            int result = DataProvider.Instance.ExecuteNonQuery(query);
+            return result > 0;
+        }
+
+        public bool DeleteAccount(string name)
+        {
+
+
+            string query = string.Format("Delete Account where USERNAME = N'{0}'", name);
+            int result = DataProvider.Instance.ExecuteNonQuery(query);
+
+            return result > 0;
+        }
+        public bool ResetPassword(string Name)
+        {
+            string query = string.Format("update ACCOUNT set PASSWORD=N'0' where USERNAME=N'{0}'", Name);
+            int result = DataProvider.Instance.ExecuteNonQuery(query);
+            return result > 0;
+        }
     }
 }
