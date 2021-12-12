@@ -421,3 +421,31 @@ GO
 --Thêm, xóa, sửa tài khoản--
 alter table account add constraint set_default_accountPas default ('1') for password
 -----------------------------------------------------------------
+--Phân trang cho hóa đơn--
+CREATE PROC USP_GetListBillByDateAndPage
+@checkIn date, @checkOut date, @page int
+AS 
+BEGIN
+	DECLARE @pageRows INT = 10
+	DECLARE @selectRows INT = @pageRows
+	DECLARE @exceptRows INT = (@page - 1) * @pageRows
+	
+	;WITH BillShow AS( SELECT b.ID, t.name AS [Tên bàn], b.totalPrice AS [Tổng tiền], DateCheckIn AS [Ngày vào], DateCheckOut AS [Ngày ra], discount AS [Giảm giá]
+	FROM dbo.Bill AS b,dbo.TableFood AS t
+	WHERE DateCheckIn >= @checkIn AND DateCheckOut <= @checkOut AND b.status = 1
+	AND t.id = b.idTable)
+	
+	SELECT TOP (@selectRows) * FROM BillShow WHERE id NOT IN (SELECT TOP (@exceptRows) id FROM BillShow)
+END
+GO
+
+CREATE PROC USP_GetNumBillByDate
+@checkIn date, @checkOut date
+AS 
+BEGIN
+	SELECT COUNT(*)
+	FROM dbo.Bill AS b,dbo.TableFood AS t
+	WHERE DateCheckIn >= @checkIn AND DateCheckOut <= @checkOut AND b.status = 1
+	AND t.id = b.idTable
+END
+GO

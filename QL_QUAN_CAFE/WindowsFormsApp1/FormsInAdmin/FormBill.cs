@@ -47,5 +47,45 @@ namespace WindowsFormsApp1.FormsInAdmin
             dtpkFromDate.Value = new DateTime(today.Year, today.Month, 1);
             dtpkToDate.Value = dtpkFromDate.Value.AddMonths(1).AddDays(-1);
         }
+
+        private void btnFirstBillPage_Click(object sender, EventArgs e)
+        {
+            txbPage.Text = "1";
+        }
+
+        private void btnLastBillPage_Click(object sender, EventArgs e)
+        {
+            int sumRecord = BillDAO.Instance.GetNumBillListByDate(dtpkFromDate.Value,dtpkToDate.Value);
+            int lastPage = sumRecord / 10;
+            if (sumRecord % 10 != 0)
+            
+                lastPage++;
+            txbPage.Text = lastPage.ToString();
+            
+        }
+
+        private void txbPage_TextChanged(object sender, EventArgs e)
+        {
+            dtgvBill.DataSource = BillDAO.Instance.GetBillListByDateAndPage(dtpkFromDate.Value, dtpkToDate.Value,Convert.ToInt32(txbPage.Text));
+        }
+
+        private void btnPrevious_Click(object sender, EventArgs e)
+        {
+            int page = Convert.ToInt32(txbPage.Text);
+            if (page > 1)
+                page--;
+            txbPage.Text = page.ToString();
+            
+        }
+
+        private void btnNext_Click(object sender, EventArgs e)
+        {
+            int page = Convert.ToInt32(txbPage.Text);
+            int sumRecord = BillDAO.Instance.GetNumBillListByDate(dtpkFromDate.Value, dtpkToDate.Value);
+            if (page < sumRecord)
+                page++;
+            txbPage.Text = page.ToString();
+
+        }
     }
 }
