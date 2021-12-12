@@ -31,6 +31,18 @@ namespace WindowsFormsApp1.FormsInAdmin
             btnViewBill.BackColor = ThemeColor.PrimaryColor;
             btnViewBill.ForeColor = Color.White;
             btnViewBill.FlatAppearance.BorderColor = ThemeColor.SecondaryColor;
+            btnFirstBillPage.BackColor = ThemeColor.PrimaryColor;
+            btnFirstBillPage.ForeColor = Color.White;
+            btnFirstBillPage.FlatAppearance.BorderColor = ThemeColor.SecondaryColor;
+            btnLastBillPage.BackColor = ThemeColor.PrimaryColor;
+            btnLastBillPage.ForeColor = Color.White;
+            btnLastBillPage.FlatAppearance.BorderColor = ThemeColor.SecondaryColor;
+            btnNextBillPage.BackColor = ThemeColor.PrimaryColor;
+            btnNextBillPage.ForeColor = Color.White;
+            btnNextBillPage.FlatAppearance.BorderColor = ThemeColor.SecondaryColor;
+            btnPreviousBillPage.BackColor = ThemeColor.PrimaryColor;
+            btnPreviousBillPage.ForeColor = Color.White;
+            btnPreviousBillPage.FlatAppearance.BorderColor = ThemeColor.SecondaryColor;
         }
 
         void LoadListBillByDate(DateTime checkIn, DateTime checkOut)
@@ -50,42 +62,45 @@ namespace WindowsFormsApp1.FormsInAdmin
 
         private void btnFirstBillPage_Click(object sender, EventArgs e)
         {
-            txbPage.Text = "1";
+            txbPageBill.Text = "1";
         }
 
         private void btnLastBillPage_Click(object sender, EventArgs e)
         {
-            int sumRecord = BillDAO.Instance.GetNumBillListByDate(dtpkFromDate.Value,dtpkToDate.Value);
+            int sumRecord = BillDAO.Instance.GetNumBillListByDate(dtpkFromDate.Value, dtpkToDate.Value);
+
             int lastPage = sumRecord / 10;
+
             if (sumRecord % 10 != 0)
-            
                 lastPage++;
-            txbPage.Text = lastPage.ToString();
-            
+
+            txbPageBill.Text = lastPage.ToString();
         }
 
-        private void txbPage_TextChanged(object sender, EventArgs e)
+        private void txbPageBill_TextChanged(object sender, EventArgs e)
         {
-            dtgvBill.DataSource = BillDAO.Instance.GetBillListByDateAndPage(dtpkFromDate.Value, dtpkToDate.Value,Convert.ToInt32(txbPage.Text));
+            dtgvBill.DataSource = BillDAO.Instance.GetBillListByDateAndPage(dtpkFromDate.Value, dtpkToDate.Value, Convert.ToInt32(txbPageBill.Text));
         }
 
-        private void btnPrevious_Click(object sender, EventArgs e)
+        private void btnPreviousBillPage_Click(object sender, EventArgs e)
         {
-            int page = Convert.ToInt32(txbPage.Text);
+            int page = Convert.ToInt32(txbPageBill.Text);
+
             if (page > 1)
                 page--;
-            txbPage.Text = page.ToString();
-            
+
+            txbPageBill.Text = page.ToString();
         }
 
-        private void btnNext_Click(object sender, EventArgs e)
+        private void btnNextBillPage_Click(object sender, EventArgs e)
         {
-            int page = Convert.ToInt32(txbPage.Text);
+            int page = Convert.ToInt32(txbPageBill.Text);
             int sumRecord = BillDAO.Instance.GetNumBillListByDate(dtpkFromDate.Value, dtpkToDate.Value);
+
             if (page < sumRecord)
                 page++;
-            txbPage.Text = page.ToString();
 
+            txbPageBill.Text = page.ToString();
         }
     }
 }

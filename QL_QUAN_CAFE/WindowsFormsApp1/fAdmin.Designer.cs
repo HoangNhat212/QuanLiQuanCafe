@@ -44,8 +44,6 @@
             this.btnCloseChildForm = new System.Windows.Forms.Button();
             this.lblTitle = new System.Windows.Forms.Label();
             this.panelDesktopPane = new System.Windows.Forms.Panel();
-            this.lblNameAdmin = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panelMenu.SuspendLayout();
@@ -285,8 +283,6 @@
             // 
             this.panelDesktopPane.BackgroundImage = global::WindowsFormsApp1.Properties.Resources.bground__2_;
             this.panelDesktopPane.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panelDesktopPane.Controls.Add(this.lblNameAdmin);
-            this.panelDesktopPane.Controls.Add(this.label15);
             this.panelDesktopPane.Controls.Add(this.label14);
             this.panelDesktopPane.Controls.Add(this.pictureBox1);
             this.panelDesktopPane.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -294,30 +290,6 @@
             this.panelDesktopPane.Name = "panelDesktopPane";
             this.panelDesktopPane.Size = new System.Drawing.Size(795, 442);
             this.panelDesktopPane.TabIndex = 3;
-            // 
-            // lblNameAdmin
-            // 
-            this.lblNameAdmin.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lblNameAdmin.BackColor = System.Drawing.Color.Transparent;
-            this.lblNameAdmin.Font = new System.Drawing.Font("UTM Androgyne", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNameAdmin.ForeColor = System.Drawing.Color.Black;
-            this.lblNameAdmin.Location = new System.Drawing.Point(304, 40);
-            this.lblNameAdmin.Name = "lblNameAdmin";
-            this.lblNameAdmin.Size = new System.Drawing.Size(206, 35);
-            this.lblNameAdmin.TabIndex = 3;
-            this.lblNameAdmin.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label15
-            // 
-            this.label15.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("UTM Androgyne", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.ForeColor = System.Drawing.Color.Black;
-            this.label15.Location = new System.Drawing.Point(219, 44);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(79, 27);
-            this.label15.TabIndex = 2;
-            this.label15.Text = "Admin: ";
             // 
             // label14
             // 
@@ -384,8 +356,6 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Panel panelDesktopPane;
         private System.Windows.Forms.Button btnCloseChildForm;
-        private System.Windows.Forms.Label lblNameAdmin;
-        private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button btnMinimize;
