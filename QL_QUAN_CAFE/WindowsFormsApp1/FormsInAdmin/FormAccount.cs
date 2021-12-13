@@ -60,10 +60,17 @@ namespace WindowsFormsApp1.FormsInAdmin
             string query = "exec dbo.USP_GetListAccountByUserName @username ";
 
             dtgvAccount.DataSource = DataProvider.Instance.ExecuteQuery(query, new object[] { "staff"});
+
         }
         void LoadAccount()
         {
             AccountList.DataSource = AccountDAO.Instance.getListAccount();
+            dtgvAccount.Columns[0].HeaderText = "Tên đăng nhập";
+            dtgvAccount.Columns[0].DataPropertyName = "UserName";
+            dtgvAccount.Columns[1].HeaderText = "Tên người dùng";
+            dtgvAccount.Columns[1].DataPropertyName = "DisplayName";
+            dtgvAccount.Columns[2].HeaderText = "Loại người dùng";
+            dtgvAccount.Columns[2].DataPropertyName = "Type";
         }
         private void btnShowAccount_Click(object sender, EventArgs e)
         {

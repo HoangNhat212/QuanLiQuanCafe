@@ -44,7 +44,7 @@ namespace WindowsFormsApp1.DAO
         {
             List<Table> list = new List<Table>();
 
-            string query = "select * from TableFood";
+            string query = "SELECT *FROM TABLEFOOD";
 
             DataTable data = DataProvider.Instance.ExecuteQuery(query);
 
@@ -56,5 +56,29 @@ namespace WindowsFormsApp1.DAO
 
             return list;
         }
+        public bool InsertTable(string name)
+        {
+            string query = string.Format("insert TABLEFOOD (NAME) VALUES (N'{0}')", name);
+            int result = DataProvider.Instance.ExecuteNonQuery(query);
+            return result > 0;
+        }
+
+        public bool UpdateTable(string name,int status,int id)
+        {
+            string query = string.Format("update TABLEFOOD set NAME= N'{0}', STATUS={1} WHERE ID={2}",name,status,id);
+            int result = DataProvider.Instance.ExecuteNonQuery(query);
+            return result > 0;
+        }
+
+        public bool DeleteTable(int id)
+        {
+            BillDAO.Instance.DeleteBillByTableID(id);
+
+            string query = string.Format("delete TABLEFOOD where id= {0}", id);
+            int result = DataProvider.Instance.ExecuteNonQuery(query);
+
+            return result > 0;
+        }
+
     }
 }

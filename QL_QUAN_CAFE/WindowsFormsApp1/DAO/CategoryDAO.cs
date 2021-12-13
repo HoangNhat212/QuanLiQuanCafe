@@ -23,7 +23,7 @@ namespace WindowsFormsApp1.DAO
         {
             List<Category> list = new List<Category>();
 
-            string query = "select * from FOODCATEGORY";
+            string query = "select*from FOODCATEGORY";
 
             DataTable data = DataProvider.Instance.ExecuteQuery(query);
 
@@ -49,6 +49,30 @@ namespace WindowsFormsApp1.DAO
             }
             return category;
         }
+        public bool InsertCategory(string name)
+        {
+            string query = string.Format("insert FOODCATEGORY (NAME) VALUES(N'{0}')", name);
+            int result = DataProvider.Instance.ExecuteNonQuery(query);
+            return result > 0;
+        }
+
+        public bool UpdateFoodCategory(int id, string name)
+        {
+            string query = string.Format("update FOODCATEGORY set NAME=N'{0}' WHERE ID={1}", name,id);
+            int result = DataProvider.Instance.ExecuteNonQuery(query);
+            return result > 0;
+        }
+
+        public bool DeleteCategory(int id)
+        {
+            BillInfoDAO.Instance.DeleteBillInfoByFoodID( id);
+
+            string query = string.Format("delete FOODCATEGORY where id={0}", id);
+            int result = DataProvider.Instance.ExecuteNonQuery(query);
+
+            return result > 0;
+        }
+
 
     }
 }

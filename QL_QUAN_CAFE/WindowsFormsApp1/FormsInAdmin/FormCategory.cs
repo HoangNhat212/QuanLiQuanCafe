@@ -49,17 +49,69 @@ namespace WindowsFormsApp1.FormsInAdmin
         void LoadListCategory()
         {
             categoryList.DataSource = CategoryDAO.Instance.GetListCategory();
+            dtgvCategory.Columns[0].HeaderText = "Mã danh mục";
+            dtgvCategory.Columns[0].DataPropertyName = "ID";
+            dtgvCategory.Columns[1].HeaderText = "Tên danh mục";
+            dtgvCategory.Columns[1].DataPropertyName = "Name";
         }
 
         void AddCategoryBinding()
         {
-            txbCategoryName.DataBindings.Add(new Binding("Text", dtgvCategory.DataSource, "Name"));
-            txbCategoryID.DataBindings.Add(new Binding("Text", dtgvCategory.DataSource, "ID"));
+            txbCategoryName.DataBindings.Add(new Binding("Text", dtgvCategory.DataSource, "Name",true,DataSourceUpdateMode.Never));
+            txbCategoryID.DataBindings.Add(new Binding("Text", dtgvCategory.DataSource, "ID",true,DataSourceUpdateMode.Never));
         }
 
         private void btnShowCategory_Click(object sender, EventArgs e)
         {
             LoadListCategory();
+        }
+
+        private void btnAddCategory_Click(object sender, EventArgs e)
+        {
+            string name = txbCategoryName.Text;
+         
+            if (CategoryDAO.Instance.InsertCategory(name))
+            {
+                MessageBox.Show("Thêm danh mục thành công");
+                LoadListCategory();
+            }
+            else
+            {
+                MessageBox.Show("Thêm danh mục thất bại");
+            }
+
+        }
+
+        private void btnDeleteCategory_Click(object sender, EventArgs e)
+        {
+            string name = txbCategoryName.Text;
+            int id = Convert.ToInt32(txbCategoryID.Text);
+
+            if (CategoryDAO.Instance.DeleteCategory(id))
+            {
+                MessageBox.Show("Xóa mục thành công");
+                LoadListCategory();
+            }
+            else
+            {
+                MessageBox.Show("Xóa mục thất bại");
+            }
+        }
+
+        private void btnEditCategory_Click(object sender, EventArgs e)
+        {
+            string name = txbCategoryName.Text;
+            int id = Convert.ToInt32(txbCategoryID.Text);
+
+            if (CategoryDAO.Instance.UpdateFoodCategory(id, name)) 
+            {
+                MessageBox.Show("Cập nhật danh mục thành công");
+                LoadListCategory();
+            }
+            else
+            {
+                MessageBox.Show("Cập nhật danh mục thất bại");
+            }
         }
     }
 }

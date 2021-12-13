@@ -50,6 +50,14 @@ namespace WindowsFormsApp1.FormsInAdmin
         void LoadListFood()
         {
             foodList.DataSource = FoodDAO.Instance.GetListFood();
+            dtgvFood.Columns[0].HeaderText = "Mã món ăn";
+            dtgvFood.Columns[0].DataPropertyName = "ID";
+            dtgvFood.Columns[1].HeaderText = "Tên món ăn";
+            dtgvFood.Columns[1].DataPropertyName = "Name";
+            dtgvFood.Columns[2].HeaderText = "Mã danh mục";
+            dtgvFood.Columns[2].DataPropertyName = "CategoryID";
+            dtgvFood.Columns[3].HeaderText = "Giá tiền";
+            dtgvFood.Columns[3].DataPropertyName = "Price";
         }
 
         private void btnShowFood_Click(object sender, EventArgs e)

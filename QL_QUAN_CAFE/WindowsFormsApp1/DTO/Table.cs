@@ -14,8 +14,9 @@ namespace WindowsFormsApp1.DTO
         private int iD;
 
         public int ID { get => iD; set => iD = value; }
-        public string Status { get => status; set => status = value; }
         public string Name { get => name; set => name = value; }
+        public string Status { get => status; set => status = value; }
+       
         public Table(int id,string name, string status)
         {
             this.ID = id;

@@ -449,3 +449,22 @@ BEGIN
 	AND t.id = b.idTable
 END
 GO
+---Thêm xóa sửa danh mục--
+select*from foodcategory
+insert FOODCATEGORY (NAME) VALUES(N'Thức ăn chậm')
+update FOODCATEGORY set NAME=N'ĂN CHẬM' WHERE ID=6
+delete FOODCATEGORY where id=6
+--Thêm xóa, sửa bàn--
+alter table TABLEFOOD add constraint set_default_TABSTATUS default ('0') for status
+select*from TABLEFOOD
+insert TABLEFOOD (NAME) VALUES(N'Bàn 16')
+update TABLEFOOD set NAME= N'BÀN 16,1', STATUS=1 WHERE ID=20
+exec USP_GetTableList
+select*from TABLEFOOD
+
+SELECT t.name AS [Tên bàn], b.totalPrice AS [Tổng tiền], DateCheckIn AS [Ngày vào], DateCheckOut AS [Ngày ra], discount AS [Giảm giá]
+	FROM dbo.Bill AS b,dbo.TableFood AS t
+
+SELECT a.ID as [Mã danh mục],a.NAME as[Tên danh mục] from FOODCATEGORY as a
+select*from TABLEFOOD
+select*from bill

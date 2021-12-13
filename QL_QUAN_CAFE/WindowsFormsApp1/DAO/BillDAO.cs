@@ -28,6 +28,10 @@ namespace WindowsFormsApp1.DAO
             }
             return -1;
         }
+        public void DeleteBillByTableID(int id)
+        {
+            DataProvider.Instance.ExecuteQuery("delete bill where IDTABLE="+id);
+        }
         public void CheckOut(int id, int discount, float totalPrice)
         {
             string query= "update dbo.BILL set dateCheckOut = GETDATE(), STATUS = 1, " + "discount = " + discount + ", totalPrice = " + totalPrice + " where ID = "+id;

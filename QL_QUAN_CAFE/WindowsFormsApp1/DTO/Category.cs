@@ -9,6 +9,13 @@ namespace WindowsFormsApp1.DTO
 {
     public class Category
     {
+        private int iD;
+
+        public int ID { get => iD; set => iD = value; }
+        private string name;
+        public string Name { get => name; set => name = value; }
+
+       
         public Category(int id, string name)
         {
             this.ID = id;
@@ -17,16 +24,11 @@ namespace WindowsFormsApp1.DTO
 
         public Category(DataRow row)
         {
-            this.ID = (int)row["id"];
-            this.Name = row["name"].ToString();
+            this.Name = row["Name"].ToString();
+            this.ID = (int)row["ID"];
+           
         }
 
-        private string name;
-        public string Name { get => name; set => name = value; }
-
-        private int iD;
-
-        public int ID { get => iD; set => iD = value; }
-        
+       
     }
 }
