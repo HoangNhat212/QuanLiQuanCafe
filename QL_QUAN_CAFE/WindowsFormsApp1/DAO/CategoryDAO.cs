@@ -66,6 +66,7 @@ namespace WindowsFormsApp1.DAO
         public bool DeleteCategory(int id)
         {
             BillInfoDAO.Instance.DeleteBillInfoByFoodID( id);
+            FoodDAO.Instance.DeleteFoodByCategoryID(id);
 
             string query = string.Format("delete FOODCATEGORY where id={0}", id);
             int result = DataProvider.Instance.ExecuteNonQuery(query);

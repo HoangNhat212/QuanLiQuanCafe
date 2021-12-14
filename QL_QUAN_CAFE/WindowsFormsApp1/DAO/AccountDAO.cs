@@ -85,7 +85,10 @@ namespace WindowsFormsApp1.DAO
         {
             string query = string.Format("INSERT dbo.Account ( UserName, DisplayName, Type, Password )VALUES  ( N'{0}', N'{1}', {2}, N'{3}')", userName, displayName, Type, "1962026656160185351301320480154111117132155");
             int result = DataProvider.Instance.ExecuteNonQuery(query);
-            return result > 0;
+            if (result > 0)
+                return true;
+            else
+                return false;
         }
 
         public bool UpdateAccount(string userName, string displayName, int Type)

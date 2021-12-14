@@ -77,6 +77,10 @@ namespace WindowsFormsApp1.DAO
             return result > 0;
         }
 
+        public void DeleteFoodByCategoryID(int id)
+        {
+            DataProvider.Instance.ExecuteQuery("delete FOOD where IDCATEGORY="+id);
+        }
         public List<Food> SearchFoodByName(string name)
         {
             List<Food> list = new List<Food>();

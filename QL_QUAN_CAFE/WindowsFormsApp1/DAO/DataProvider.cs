@@ -5,6 +5,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace WindowsFormsApp1.DAO
 {
@@ -18,7 +19,7 @@ namespace WindowsFormsApp1.DAO
         }
 
         private DataProvider() { }
-        private string connectionSTR = "Data Source=.\\sqlexpress;Initial Catalog=Test;Integrated Security=True";
+        private string connectionSTR = "Data Source=DESKTOP-QCH0V0C;Initial Catalog=Test;Integrated Security=True";
 
         public DataTable ExecuteQuery(string query, object[] parameter = null)
         {
@@ -62,28 +63,32 @@ namespace WindowsFormsApp1.DAO
 
             using (SqlConnection connection = new SqlConnection(connectionSTR))
             {
-
-                connection.Open();
-
-                SqlCommand command = new SqlCommand(query, connection);
-
-                if (parameter != null)
+                try
                 {
-                    string[] listPara = query.Split(' ');
-                    int i = 0;
-                    foreach (string item in listPara)
+                    connection.Open();
+
+                    SqlCommand command = new SqlCommand(query, connection);
+
+                    if (parameter != null)
                     {
-                        if (item.Contains('@'))
+                        string[] listPara = query.Split(' ');
+                        int i = 0;
+                        foreach (string item in listPara)
                         {
-                            command.Parameters.AddWithValue(item, parameter[i]);
-                            i++;
+                            if (item.Contains('@'))
+                            {
+                                command.Parameters.AddWithValue(item, parameter[i]);
+                                i++;
+                            }
                         }
                     }
+                    data = command.ExecuteNonQuery();
+                    
+                    connection.Close();
+                }catch(SqlException ex)
+                {
+                    MessageBox.Show(ex.Message.ToString());
                 }
-                data = command.ExecuteNonQuery();
-
-                connection.Close();
-
             }
 
             return data;
