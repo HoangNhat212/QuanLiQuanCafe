@@ -21,10 +21,10 @@ namespace WindowsFormsApp1.FormsInAdmin
 
         private void FormTable_Load(object sender, EventArgs e)
         {
-          
-            LoadTheme();
-            LoadListTable();
             dtgvTable.DataSource = tableList;
+            LoadTheme();
+            StyleDatagridview();
+            LoadListTable();
             AddTableBinding();
         }
 
@@ -44,15 +44,35 @@ namespace WindowsFormsApp1.FormsInAdmin
             btnShowTable.FlatAppearance.BorderColor = ThemeColor.SecondaryColor;
         }
 
+        void StyleDatagridview() //Custome Bảng
+        {
+            dtgvTable.AlternatingRowsDefaultCellStyle.BackColor = Color.White;
+            dtgvTable.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
+            dtgvTable.DefaultCellStyle.SelectionBackColor = ThemeColor.PrimaryColor;
+            dtgvTable.DefaultCellStyle.SelectionForeColor = Color.White;
+            dtgvTable.DefaultCellStyle.Font = new Font("Century Gothic", 10);
+            dtgvTable.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
+            dtgvTable.RowHeadersVisible = false;
+            dtgvTable.EnableHeadersVisualStyles = false;
+            dtgvTable.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
+            dtgvTable.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            dtgvTable.ColumnHeadersHeight = 40;
+            dtgvTable.ColumnHeadersDefaultCellStyle.Font = new Font("Century Gothic", 11, FontStyle.Bold);
+            dtgvTable.ColumnHeadersDefaultCellStyle.BackColor = ThemeColor.SecondaryColor;
+            dtgvTable.ColumnHeadersDefaultCellStyle.SelectionBackColor = ThemeColor.SecondaryColor;
+            dtgvTable.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
+            dtgvTable.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+        }
+
         void LoadListTable()
         {
             tableList.DataSource = TableDAO.Instance.GetListTable();
-            //dtgvTable.Columns[0].HeaderText = "Mã bàn";
-            //dtgvTable.Columns[0].DataPropertyName = "ID";
-            //dtgvTable.Columns[1].HeaderText = "Tên bàn";
-            //dtgvTable.Columns[1].DataPropertyName = "Name";
-            //dtgvTable.Columns[2].HeaderText = "Trạng thái";
-            //dtgvTable.Columns[2].DataPropertyName = "Status";
+            dtgvTable.Columns[0].HeaderText = "Mã bàn";
+            dtgvTable.Columns[0].DataPropertyName = "ID";
+            dtgvTable.Columns[1].HeaderText = "Tên bàn";
+            dtgvTable.Columns[1].DataPropertyName = "Name";
+            dtgvTable.Columns[2].HeaderText = "Trạng thái";
+            dtgvTable.Columns[2].DataPropertyName = "Status";
         }
 
         void AddTableBinding()

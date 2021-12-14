@@ -23,6 +23,7 @@ namespace WindowsFormsApp1.FormsInAdmin
         {
             dtgvCategory.DataSource = categoryList;
             LoadTheme();
+            StyleDatagridview();
             LoadListCategory();
             AddCategoryBinding();
         }
@@ -45,6 +46,27 @@ namespace WindowsFormsApp1.FormsInAdmin
                 btnShowCategory.FlatAppearance.BorderColor = ThemeColor.SecondaryColor;
             }
         }
+
+        void StyleDatagridview() //Custome Bảng
+        {
+            dtgvCategory.AlternatingRowsDefaultCellStyle.BackColor = Color.White;
+            dtgvCategory.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
+            dtgvCategory.DefaultCellStyle.SelectionBackColor = ThemeColor.PrimaryColor;
+            dtgvCategory.DefaultCellStyle.SelectionForeColor = Color.White;
+            dtgvCategory.DefaultCellStyle.Font = new Font("Century Gothic", 10);
+            dtgvCategory.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
+            dtgvCategory.RowHeadersVisible = false;
+            dtgvCategory.EnableHeadersVisualStyles = false;
+            dtgvCategory.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
+            dtgvCategory.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            dtgvCategory.ColumnHeadersHeight = 40;
+            dtgvCategory.ColumnHeadersDefaultCellStyle.Font = new Font("Century Gothic", 11, FontStyle.Bold);
+            dtgvCategory.ColumnHeadersDefaultCellStyle.BackColor = ThemeColor.SecondaryColor;
+            dtgvCategory.ColumnHeadersDefaultCellStyle.SelectionBackColor = ThemeColor.SecondaryColor;
+            dtgvCategory.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
+            dtgvCategory.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+        }
+
 
         void LoadListCategory()
         {

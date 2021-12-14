@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using WindowsFormsApp1.DAO;
 using WindowsFormsApp1.DTO;
+using WindowsFormsApp1.Properties;
 
 namespace WindowsFormsApp1
 {
@@ -31,12 +32,12 @@ namespace WindowsFormsApp1
         {
             InitializeComponent();
             this.LoginAccount = acc;
-            label1.Text ="    " + DateTime.Now.ToString();
+            label1.Text = "    " + DateTime.Now.ToString();
             LoadTable();
             LoadCategory();
             LoadComboboxTable(cbSwitchTable);
-            
         }
+
         #region Method
 
         void ChangeAccount(int type)
@@ -74,12 +75,16 @@ namespace WindowsFormsApp1
                         {
                             item.Status = "Trống";
                             btn.BackColor = Color.FromArgb(255, 243, 35);
+                            btn.BackgroundImage = Resources.round_table__1_;
+                            btn.BackgroundImageLayout = ImageLayout.Stretch;
                             break;
                         }
                     default:
                         {
                             item.Status = "Đã có khách";
                             btn.BackColor = Color.Beige;
+                            btn.BackgroundImage = Resources.round_table__1_;
+                            btn.BackgroundImageLayout = ImageLayout.Stretch;
                             break;
                         }
                 }
@@ -140,7 +145,7 @@ namespace WindowsFormsApp1
         {
             LoadFoodListByCategoryID((cbCategory.SelectedItem as Category).ID);
             if (lsvBill.Tag != null)
-                ShowBill((lsvBill.Tag as Table).ID);
+            { ShowBill((lsvBill.Tag as Table).ID); }
             LoadTable();
         }
 
@@ -287,6 +292,7 @@ namespace WindowsFormsApp1
                 }
             }
         }
+
 
 
         #endregion

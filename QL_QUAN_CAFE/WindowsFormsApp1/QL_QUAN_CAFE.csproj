@@ -216,5 +216,17 @@
   <ItemGroup>
     <None Include="Resources\power-on %281%29.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\table %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\table.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\round-table %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\poster_template_coffee_day_generated_LI.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

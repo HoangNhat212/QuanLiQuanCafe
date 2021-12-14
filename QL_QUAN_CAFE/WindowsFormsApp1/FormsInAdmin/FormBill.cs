@@ -21,6 +21,7 @@ namespace WindowsFormsApp1.FormsInAdmin
         private void FormBill_Load(object sender, EventArgs e)
         {
             LoadTheme();
+            StyleDatagridview();
             LoadDateTimePickerBill();
             LoadListBillByDate(dtpkFromDate.Value, dtpkToDate.Value);
         }
@@ -45,14 +46,36 @@ namespace WindowsFormsApp1.FormsInAdmin
             btnPreviousBillPage.FlatAppearance.BorderColor = ThemeColor.SecondaryColor;
         }
 
+        void StyleDatagridview() //Custome Bảng
+        {
+            dtgvBill.AlternatingRowsDefaultCellStyle.BackColor = Color.White;
+            dtgvBill.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
+            dtgvBill.DefaultCellStyle.SelectionBackColor = ThemeColor.PrimaryColor;
+            dtgvBill.DefaultCellStyle.SelectionForeColor = Color.White;
+            dtgvBill.DefaultCellStyle.Font = new Font("Century Gothic", 10);
+            dtgvBill.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
+            dtgvBill.RowHeadersVisible = false;
+            dtgvBill.EnableHeadersVisualStyles = false;
+            dtgvBill.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
+            dtgvBill.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            dtgvBill.ColumnHeadersHeight = 35;
+            dtgvBill.ColumnHeadersDefaultCellStyle.Font = new Font("Century Gothic", 11, FontStyle.Bold);
+            dtgvBill.ColumnHeadersDefaultCellStyle.BackColor = ThemeColor.SecondaryColor;
+            dtgvBill.ColumnHeadersDefaultCellStyle.SelectionBackColor = ThemeColor.SecondaryColor;
+            dtgvBill.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
+            dtgvBill.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+        }
+
         void LoadListBillByDate(DateTime checkIn, DateTime checkOut)
         {
             dtgvBill.DataSource = BillDAO.Instance.GetBillListByDate(checkIn, checkOut);
         }
+
         private void btnViewBill_Click(object sender, EventArgs e)
         {
             LoadListBillByDate(dtpkFromDate.Value, dtpkToDate.Value);
         }
+
         void LoadDateTimePickerBill()
         {
             DateTime today = DateTime.Now;

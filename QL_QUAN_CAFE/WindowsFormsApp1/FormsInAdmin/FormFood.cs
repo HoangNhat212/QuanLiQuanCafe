@@ -24,6 +24,7 @@ namespace WindowsFormsApp1.FormsInAdmin
         {
             dtgvFood.DataSource = foodList;
             LoadTheme();
+            StyleDatagridview();
             LoadListFood();
             AddFoodBinding();
             LoadCategoryIntoCombobox(cbFoodCategory);
@@ -47,6 +48,27 @@ namespace WindowsFormsApp1.FormsInAdmin
             btnShowFood.FlatAppearance.BorderColor = ThemeColor.SecondaryColor;
 
         }
+
+        void StyleDatagridview() //Custome Bảng
+        {
+            dtgvFood.AlternatingRowsDefaultCellStyle.BackColor = Color.White;
+            dtgvFood.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
+            dtgvFood.DefaultCellStyle.SelectionBackColor = ThemeColor.PrimaryColor;
+            dtgvFood.DefaultCellStyle.SelectionForeColor = Color.White;
+            dtgvFood.DefaultCellStyle.Font = new Font("Century Gothic", 10);
+            dtgvFood.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
+            dtgvFood.RowHeadersVisible = false;
+            dtgvFood.EnableHeadersVisualStyles = false;
+            dtgvFood.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
+            dtgvFood.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            dtgvFood.ColumnHeadersHeight = 40;
+            dtgvFood.ColumnHeadersDefaultCellStyle.Font = new Font("Century Gothic", 11, FontStyle.Bold);
+            dtgvFood.ColumnHeadersDefaultCellStyle.BackColor = ThemeColor.SecondaryColor;
+            dtgvFood.ColumnHeadersDefaultCellStyle.SelectionBackColor = ThemeColor.SecondaryColor;
+            dtgvFood.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
+            dtgvFood.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+        }
+
         void LoadListFood()
         {
             foodList.DataSource = FoodDAO.Instance.GetListFood();
@@ -64,12 +86,14 @@ namespace WindowsFormsApp1.FormsInAdmin
         {
             LoadListFood();
         }
+
         void AddFoodBinding()
         {
             txbFoodName.DataBindings.Add(new Binding("Text", dtgvFood.DataSource, "Name", true, DataSourceUpdateMode.Never));
             txbFoodID.DataBindings.Add(new Binding("Text", dtgvFood.DataSource, "ID", true, DataSourceUpdateMode.Never));
             nmFoodPrice.DataBindings.Add(new Binding("Value", dtgvFood.DataSource, "Price", true, DataSourceUpdateMode.Never));
         }
+
         void LoadCategoryIntoCombobox(ComboBox cb)
         {
             cb.DataSource = CategoryDAO.Instance.GetListCategory();

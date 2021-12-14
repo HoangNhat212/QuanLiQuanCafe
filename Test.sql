@@ -393,7 +393,7 @@ BEGIN
 END
 GO
 -----------------------------------------------
-create TRIGGER UTG_DeleteBillInfo
+CREATE TRIGGER UTG_DeleteBillInfo
 ON dbo.BillInfo FOR DELETE
 AS 
 BEGIN
