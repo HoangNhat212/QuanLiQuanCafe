@@ -65,6 +65,7 @@
             this.btnExit = new System.Windows.Forms.Button();
             this.btnOpenFormAdmin = new System.Windows.Forms.Button();
             this.btnOpenFormProfile = new System.Windows.Forms.Button();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nmDiscount)).BeginInit();
@@ -74,6 +75,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.SuspendLayout();
             // 
             // panel3
@@ -356,7 +358,7 @@
             // 
             // panel2
             // 
-            this.panel2.BackColor = System.Drawing.Color.SteelBlue;
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(87)))), ((int)(((byte)(126)))));
             this.panel2.Controls.Add(this.btnMinimize);
             this.panel2.Controls.Add(this.btnMaximize);
             this.panel2.Controls.Add(this.btnClose);
@@ -421,17 +423,17 @@
             // 
             this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox1.Location = new System.Drawing.Point(4, 2);
+            this.pictureBox1.Location = new System.Drawing.Point(5, 3);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(27, 19);
+            this.pictureBox1.Size = new System.Drawing.Size(26, 18);
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
             // 
             // label2
             // 
             this.label2.Font = new System.Drawing.Font("UTM Nyala", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.Black;
-            this.label2.Location = new System.Drawing.Point(35, 0);
+            this.label2.ForeColor = System.Drawing.Color.DarkTurquoise;
+            this.label2.Location = new System.Drawing.Point(31, -1);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(211, 24);
             this.label2.TabIndex = 0;
@@ -441,6 +443,7 @@
             // panel5
             // 
             this.panel5.BackColor = System.Drawing.Color.SkyBlue;
+            this.panel5.Controls.Add(this.pictureBox4);
             this.panel5.Controls.Add(this.lblDispalyName);
             this.panel5.Controls.Add(this.pictureBox2);
             this.panel5.Controls.Add(this.label1);
@@ -532,11 +535,23 @@
             this.btnOpenFormProfile.Name = "btnOpenFormProfile";
             this.btnOpenFormProfile.Size = new System.Drawing.Size(231, 52);
             this.btnOpenFormProfile.TabIndex = 2;
-            this.btnOpenFormProfile.Text = "  Thông tin cá nhân";
+            this.btnOpenFormProfile.Text = " Thông tin tài khoản";
             this.btnOpenFormProfile.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btnOpenFormProfile.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnOpenFormProfile.UseVisualStyleBackColor = false;
             this.btnOpenFormProfile.Click += new System.EventHandler(this.btnOpenFormProfile_Click);
+            // 
+            // pictureBox4
+            // 
+            this.pictureBox4.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBox4.BackColor = System.Drawing.Color.White;
+            this.pictureBox4.Location = new System.Drawing.Point(1, -1);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(924, 2);
+            this.pictureBox4.TabIndex = 6;
+            this.pictureBox4.TabStop = false;
             // 
             // fTableManager
             // 
@@ -567,6 +582,7 @@
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -607,5 +623,6 @@
         private System.Windows.Forms.Label lblDispalyName;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.PictureBox pictureBox4;
     }
 }

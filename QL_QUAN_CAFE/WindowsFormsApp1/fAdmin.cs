@@ -8,6 +8,8 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WindowsFormsApp1.DAO;
+using WindowsFormsApp1.DTO;
 
 namespace WindowsFormsApp1
 {

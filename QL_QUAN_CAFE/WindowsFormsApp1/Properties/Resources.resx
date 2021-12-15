@@ -121,6 +121,9 @@
   <data name="background-ca-phe-chuyen-nghiep_034337030" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\background-ca-phe-chuyen-nghiep_034337030.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="bground (2)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\bground (2).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="kisspng-coffee-bean-cappuccino-cafe-creative-coffee-beans-seamless-background-vector-5a86ec7a830ca9.6942069115187918025368" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\kisspng-coffee-bean-cappuccino-cafe-creative-coffee-beans-seamless-background-vector-5a86ec7a830ca9.6942069115187918025368.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -130,8 +133,11 @@
   <data name="power-on (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\power-on (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="bground (2)" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\bground (2).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="table (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\table (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="round-table (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\round-table (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="coffee-5417663_1280" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\coffee-5417663_1280.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -139,17 +145,14 @@
   <data name="istockphoto-1300845620-170667a" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\istockphoto-1300845620-170667a.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="round-table (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\round-table (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="plus (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\plus (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="istockphoto-1253450580-170667a" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\istockphoto-1253450580-170667a.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="background-ca-phe-chuyen-nghiep_034337030 (2)" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\background-ca-phe-chuyen-nghiep_034337030 (2).jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="poster_template_coffee_day_generated_LI" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\poster_template_coffee_day_generated_LI.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="pngegg (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\pngegg (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -172,10 +175,10 @@
   <data name="background" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\background.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="table (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\table (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="background-ca-phe-chuyen-nghiep_034337030 (2)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\background-ca-phe-chuyen-nghiep_034337030 (2).jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="poster_template_coffee_day_generated_LI" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\poster_template_coffee_day_generated_LI.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="poster_template_coffee_day_generated_LI1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\poster_template_coffee_day_generated_LI.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

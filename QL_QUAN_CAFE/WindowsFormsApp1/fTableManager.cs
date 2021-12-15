@@ -312,6 +312,8 @@ namespace WindowsFormsApp1
             LoadTable();
             LoadCategory();
             LoadComboboxTable(cbSwitchTable);
+            if (lsvBill.Tag != null)
+                ShowBill((lsvBill.Tag as Table).ID);
         }
     }
 }

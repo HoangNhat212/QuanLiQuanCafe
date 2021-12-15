@@ -224,6 +224,16 @@ namespace WindowsFormsApp1.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap poster_template_coffee_day_generated_LI1 {
+            get {
+                object obj = ResourceManager.GetObject("poster_template_coffee_day_generated_LI1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap power_on__1_ {
             get {
                 object obj = ResourceManager.GetObject("power-on (1)", resourceCulture);
