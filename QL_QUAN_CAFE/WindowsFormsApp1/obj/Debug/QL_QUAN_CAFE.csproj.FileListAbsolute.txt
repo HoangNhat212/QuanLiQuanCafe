@@ -133,3 +133,4 @@ C:\Users\Administrator\Desktop\QuanLiQuanCafe\QL_QUAN_CAFE\WindowsFormsApp1\bin\
 C:\Users\Administrator\Desktop\QuanLiQuanCafe\QL_QUAN_CAFE\WindowsFormsApp1\bin\Debug\System.IdentityModel.Tokens.Jwt.pdb
 C:\Users\Administrator\Desktop\QuanLiQuanCafe\QL_QUAN_CAFE\WindowsFormsApp1\bin\Debug\System.IdentityModel.Tokens.Jwt.xml
 C:\Users\Administrator\Desktop\QuanLiQuanCafe\QL_QUAN_CAFE\WindowsFormsApp1\obj\Debug\QL_QUAN_CAFE.csproj.CopyComplete
+C:\Users\Administrator\Desktop\QuanLiQuanCafe\QL_QUAN_CAFE\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.FormsInAdmin.FormStatistics.resources

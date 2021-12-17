@@ -79,8 +79,8 @@ namespace WindowsFormsApp1.FormsInAdmin
         void LoadDateTimePickerBill()
         {
             DateTime today = DateTime.Now;
-            dtpkFromDate.Value = new DateTime(today.Year, today.Month, 1);
-            dtpkToDate.Value = dtpkFromDate.Value.AddMonths(1).AddDays(-1);
+            dtpkFromDate.Value = new DateTime(today.Year, today.Month, today.Day);
+            dtpkToDate.Value = dtpkFromDate.Value.AddDays(+1);
         }
 
         private void btnFirstBillPage_Click(object sender, EventArgs e)

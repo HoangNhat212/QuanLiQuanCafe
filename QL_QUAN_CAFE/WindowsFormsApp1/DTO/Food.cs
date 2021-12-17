@@ -18,11 +18,6 @@ namespace WindowsFormsApp1.DTO
         public int CategoryID { get => categoryID; set => categoryID = value; }
         private float price;
         public float Price { get => price; set => price = value; }
-
-       
-
-       
-
         
         public Food(int id, string name, int categoryID, float price)
         {

@@ -468,3 +468,7 @@ SELECT t.name AS [Tên bàn], b.totalPrice AS [Tổng tiền], DateCheckIn AS [N
 SELECT a.ID as [Mã danh mục],a.NAME as[Tên danh mục] from FOODCATEGORY as a
 select*from TABLEFOOD
 select*from bill
+
+------------------------------------------
+
+

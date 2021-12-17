@@ -8,8 +8,6 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using WindowsFormsApp1.DAO;
-using WindowsFormsApp1.DTO;
 
 namespace WindowsFormsApp1
 {
@@ -122,6 +120,11 @@ namespace WindowsFormsApp1
         private void btnAccount_Click(object sender, EventArgs e)
         {
             OpenChildForm(new FormsInAdmin.FormAccount(), sender);
+        }
+
+        private void btnStatistics_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new FormsInAdmin.FormStatistics(), sender);
         }
 
         private void btnCloseChildForm_Click(object sender, EventArgs e)
