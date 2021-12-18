@@ -128,7 +128,7 @@ namespace WindowsFormsApp1
         }
         private void btnOpenFormAdmin_Click(object sender, EventArgs e)
         {
-            fAdmin f = new fAdmin();
+            fAdmin f = new fAdmin(LoginAccount);
             f.InsertFood += f_InsertFood;
             f.DeleteFood += f_DeleteFood;
             f.UpdateFood += f_UpdateFood;

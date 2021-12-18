@@ -8,6 +8,7 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WindowsFormsApp1.DTO;
 
 namespace WindowsFormsApp1
 {
@@ -18,13 +19,16 @@ namespace WindowsFormsApp1
         private Random random;
         private int tempIndex;
         private Form activeForm;
+        private Account loginAccount;
 
         public Action<object, EventArgs> InsertFood { get; internal set; }
         public Action<object, EventArgs> DeleteFood { get; internal set; }
         public Action<object, EventArgs> UpdateFood { get; internal set; }
+        public Account LoginAccount { get => loginAccount; set => loginAccount = value; }
+
 
         //Constructor
-        public fAdmin()
+        public fAdmin(Account acc)
         {
             InitializeComponent();
             random = new Random();
@@ -32,6 +36,7 @@ namespace WindowsFormsApp1
             this.Text = string.Empty;
             this.ControlBox = false;
             this.MaximizedBounds = Screen.FromHandle(this.Handle).WorkingArea;
+            this.LoginAccount = acc;
         }
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
         private extern static void ReleaseCapture();
@@ -119,7 +124,7 @@ namespace WindowsFormsApp1
 
         private void btnAccount_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new FormsInAdmin.FormAccount(), sender);
+            OpenChildForm(new FormsInAdmin.FormAccount(LoginAccount), sender);
         }
 
         private void btnStatistics_Click(object sender, EventArgs e)

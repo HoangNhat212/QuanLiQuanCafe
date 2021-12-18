@@ -102,24 +102,30 @@ namespace WindowsFormsApp1.FormsInAdmin
 
         private void txbFoodID_TextChanged(object sender, EventArgs e)
         {
-            if (dtgvFood.SelectedCells.Count > 0)
+            try
             {
-                int id = (int)dtgvFood.SelectedCells[0].OwningRow.Cells["CategoryID"].Value;
-                Category category = CategoryDAO.Instance.GetCategoryByID(id);
-                cbFoodCategory.SelectedItem = category;
-                int index = -1;
-                int i = 0;
-                foreach (Category item in cbFoodCategory.Items)
+                if (dtgvFood.SelectedCells.Count > 0 && dtgvFood.SelectedCells[0].OwningRow.Cells["CategoryID"].Value != null)
                 {
-                    if (item.ID == category.ID)
+                    int id = (int)dtgvFood.SelectedCells[0].OwningRow.Cells["CategoryID"].Value;
+                    Category category = CategoryDAO.Instance.GetCategoryByID(id);
+                    cbFoodCategory.SelectedItem = category;
+                    int index = -1;
+                    int i = 0;
+                    foreach (Category item in cbFoodCategory.Items)
                     {
-                        index = i;
-                        break;
+                        if (item.ID == category.ID)
+                        {
+                            index = i;
+                            break;
+                        }
+                        i++;
                     }
-                    i++;
+                    cbFoodCategory.SelectedIndex = index;
+
                 }
-                cbFoodCategory.SelectedIndex = index;
             }
+            catch  { MessageBox.Show("không tìm thấy món ăn"); }
+
         }
 
         private void btnAddFood_Click(object sender, EventArgs e)

@@ -119,7 +119,7 @@ namespace WindowsFormsApp1.FormsInAdmin
         private void btnEditTable_Click(object sender, EventArgs e)
         {
             string name = txbTableName.Text;
-            int status = Convert.ToInt32 (cbTableStatus.SelectedItem.ToString());
+            int status = int.Parse(cbTableStatus.SelectedItem.ToString());
             int id = int.Parse(txbTableID.Text);
             if (TableDAO.Instance.UpdateTable(name, status, id))
             {

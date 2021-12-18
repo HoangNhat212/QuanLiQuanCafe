@@ -17,9 +17,10 @@ namespace WindowsFormsApp1.FormsInAdmin
     {
         BindingSource AccountList = new BindingSource();
         public Account loginAccount;
-        public FormAccount()
+        public FormAccount(Account acc)
         {
             InitializeComponent();
+            this.loginAccount = acc;
             dtgvAccount.DataSource = AccountList;
             //LoadAcountList();
             AddAccountBinding();
@@ -165,8 +166,15 @@ namespace WindowsFormsApp1.FormsInAdmin
         private void btnDeleteAccount_Click(object sender, EventArgs e)
         {
             string userName = txbUserName.Text;
-
-            DeleteAccount(userName);
+            if (loginAccount.UserName.Equals(userName))
+            {
+                MessageBox.Show("Không thể xóa tài khoản đang đăng nhập");
+            }
+            else
+            {
+                DeleteAccount(userName);
+            }
+            
         }
 
         private void btnEditAccount_Click(object sender, EventArgs e)
