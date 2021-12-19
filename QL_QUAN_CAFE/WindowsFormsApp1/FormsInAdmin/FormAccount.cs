@@ -111,7 +111,7 @@ namespace WindowsFormsApp1.FormsInAdmin
             }
             else
             {
-                MessageBox.Show("Thêm tài khoản thất bại");
+                MessageBox.Show("Tên đăng nhập đã tồn tại");
             }
             LoadAccount();
         }

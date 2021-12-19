@@ -79,7 +79,7 @@ namespace WindowsFormsApp1.FormsInAdmin
         {
             txbTableID.DataBindings.Add(new Binding("Text", dtgvTable.DataSource, "ID",true,DataSourceUpdateMode.Never));
             txbTableName.DataBindings.Add(new Binding("Text", dtgvTable.DataSource, "Name",true,DataSourceUpdateMode.Never));
-            cbTableStatus.DataBindings.Add(new Binding("Text", dtgvTable.DataSource, "Status",true,DataSourceUpdateMode.Never));
+            nmTableStatus.DataBindings.Add(new Binding("Value", dtgvTable.DataSource, "Status",true,DataSourceUpdateMode.Never));
         }
 
         private void btnShowTable_Click(object sender, EventArgs e)
@@ -119,17 +119,21 @@ namespace WindowsFormsApp1.FormsInAdmin
         private void btnEditTable_Click(object sender, EventArgs e)
         {
             string name = txbTableName.Text;
-            int status = int.Parse(cbTableStatus.SelectedItem.ToString());
-            int id = int.Parse(txbTableID.Text);
-            if (TableDAO.Instance.UpdateTable(name, status, id))
+            try
             {
-                MessageBox.Show("Cập nhật thành công");
-                LoadListTable();
+                int status = (int)nmTableStatus.Value;
+                int id = int.Parse(txbTableID.Text);
+                if (TableDAO.Instance.UpdateTable(name, status, id))
+                {
+                    MessageBox.Show("Cập nhật thành công");
+                    LoadListTable();
+                }
+                else
+                {
+                    MessageBox.Show("Cập nhật thất bại");
+                }
             }
-            else
-            {
-                MessageBox.Show("Cập nhật thất bại");
-            }    
+            catch { }
         }
     }
 }

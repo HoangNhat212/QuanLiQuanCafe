@@ -108,6 +108,7 @@ namespace WindowsFormsApp1
                 lsvBill.Items.Add(lsvItem);
                 totalPrice += item.TotalPrice;
             }
+            totalPrice = totalPrice - (totalPrice * (float)nmDiscount.Value / 100);
             CultureInfo culture = new CultureInfo("vi-VN");
             txbTotalPrice.Text = totalPrice.ToString("c",culture);
         }
@@ -169,13 +170,16 @@ namespace WindowsFormsApp1
             int discount = (int)nmDiscount.Value;
 
             double totalPrice = Convert.ToDouble(txbTotalPrice.Text.Split(',')[0].Replace(".", ""));
-            double finalTotalPrice = totalPrice - (totalPrice / 100) * discount;
+            double finalTotalPrice = totalPrice;
 
             if (idBill != -1)
             {
-                if(MessageBox.Show(string.Format("Bạn có chắc thanh toán hoá đơn cho {0}\nTổng tiền - Tổng tiền x Giảm giá\n=>{1} - ({1} x {2}%) = {3}", table.Name,totalPrice,discount,finalTotalPrice),"Thông báo",MessageBoxButtons.OKCancel,MessageBoxIcon.Information)==System.Windows.Forms.DialogResult.OK)
+                if(MessageBox.Show(string.Format("Bạn có chắc thanh toán hoá đơn cho {0}", table.Name),"Thông báo",MessageBoxButtons.OKCancel,MessageBoxIcon.Information)==System.Windows.Forms.DialogResult.OK)
                 {
+                    printPreviewDialog1.Document = printDocument1;
+                    printPreviewDialog1.ShowDialog();
                     BillDAO.Instance.CheckOut(idBill, discount, (float)finalTotalPrice);
+                    
                     ShowBill(table.ID);
                     LoadTable();
                 }    
@@ -315,5 +319,45 @@ namespace WindowsFormsApp1
             if (lsvBill.Tag != null)
                 ShowBill((lsvBill.Tag as Table).ID);
         }
+
+        private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
+        {
+           
+            List<Menu1> listMenu = Menu1DAO.Instance.GetListMenuByTable((lsvBill.Tag as Table).ID);
+            CultureInfo culture = new CultureInfo("vi-VN");
+            
+            e.Graphics.DrawString("HÓA ĐƠN BÁN HÀNG", new Font("Bookman Old Style", 24, FontStyle.Bold), Brushes.Black, new Point(255, 100));
+            e.Graphics.DrawString("Date: " + DateTime.Now.ToShortDateString(), new Font("Bookman Old Style", 12, FontStyle.Regular), Brushes.Black, new Point(25, 160));
+            e.Graphics.DrawString("Tên bàn: " + (lsvBill.Tag as Table).Name.ToString(), new Font("Bookman Old Style", 12, FontStyle.Regular), Brushes.Black, new Point(25, 190));
+            e.Graphics.DrawString("------------------------------------------------------------------------------------------------------------------------------------", new Font("Arial", 12, FontStyle.Regular), Brushes.Black, new Point(25, 235));
+            e.Graphics.DrawString("Tên món ăn: ", new Font("Bookman Old Style", 12, FontStyle.Regular), Brushes.Black, new Point(30, 255));
+            e.Graphics.DrawString("Số lượng: ", new Font("Bookman Old Style", 12, FontStyle.Regular), Brushes.Black, new Point(380, 255));
+            e.Graphics.DrawString("Đơn giá: ", new Font("Bookman Old Style", 12, FontStyle.Regular), Brushes.Black, new Point(510, 255));
+            e.Graphics.DrawString("Thành tiền: ", new Font("Bookman Old Style", 12, FontStyle.Regular), Brushes.Black, new Point(660, 255));
+            e.Graphics.DrawString("------------------------------------------------------------------------------------------------------------------------------------", new Font("Arial", 12, FontStyle.Regular), Brushes.Black, new Point(25, 270));
+            int yPos = 295;
+            float totalPrice=0;
+            foreach (Menu1 item in listMenu)
+            {
+                e.Graphics.DrawString(item.FoodName.ToString(), new Font("Bookman Old Style", 12, FontStyle.Regular), Brushes.Black, new Point(30, yPos));
+                e.Graphics.DrawString(item.Count.ToString(), new Font("Bookman Old Style", 12, FontStyle.Regular), Brushes.Black, new Point(405, yPos));
+                e.Graphics.DrawString(item.Price.ToString(), new Font("Bookman Old Style", 12, FontStyle.Regular), Brushes.Black, new Point(525, yPos));
+                e.Graphics.DrawString(item.TotalPrice.ToString(), new Font("Bookman Old Style", 12, FontStyle.Regular), Brushes.Black, new Point(675, yPos));
+                totalPrice += item.TotalPrice;
+                yPos += 30;
+
+            }
+            e.Graphics.DrawString("------------------------------------------------------------------------------------------------------------------------------------", new Font("Arial", 12, FontStyle.Regular), Brushes.Black, new Point(25, yPos));
+            e.Graphics.DrawString("Tổng tiền: "+ totalPrice.ToString("c", culture), new Font("Arial", 12, FontStyle.Regular), Brushes.Black, new Point(600, yPos+30));
+            e.Graphics.DrawString("Giảm giá: " + nmDiscount.Value.ToString(culture)+"%", new Font("Arial", 12, FontStyle.Regular), Brushes.Black, new Point(600, yPos + 60));
+            e.Graphics.DrawString("Số tiền phải trả: " + txbTotalPrice.Text.ToString(culture), new Font("Arial", 12, FontStyle.Regular), Brushes.Black, new Point(600, yPos + 90)); 
+        }
+       
+        private void printPreviewDialog1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+       
     }
 }
