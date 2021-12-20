@@ -327,8 +327,9 @@ namespace WindowsFormsApp1
             CultureInfo culture = new CultureInfo("vi-VN");
             
             e.Graphics.DrawString("HÓA ĐƠN BÁN HÀNG", new Font("Bookman Old Style", 24, FontStyle.Bold), Brushes.Black, new Point(255, 100));
-            e.Graphics.DrawString("Date: " + DateTime.Now.ToShortDateString(), new Font("Bookman Old Style", 12, FontStyle.Regular), Brushes.Black, new Point(25, 160));
-            e.Graphics.DrawString("Tên bàn: " + (lsvBill.Tag as Table).Name.ToString(), new Font("Bookman Old Style", 12, FontStyle.Regular), Brushes.Black, new Point(25, 190));
+            e.Graphics.DrawString("Ngày hóa đơn: " + DateTime.Now.ToShortDateString(), new Font("Bookman Old Style", 12, FontStyle.Regular), Brushes.Black, new Point(25, 160));
+            e.Graphics.DrawString("Tên nhân viên: " + LoginAccount.DisplayName.ToString(), new Font("Bookman Old Style", 12, FontStyle.Regular), Brushes.Black, new Point(25, 190));
+            e.Graphics.DrawString("Tên bàn: " + (lsvBill.Tag as Table).Name.ToString(), new Font("Bookman Old Style", 12, FontStyle.Regular), Brushes.Black, new Point(25, 220));            
             e.Graphics.DrawString("------------------------------------------------------------------------------------------------------------------------------------", new Font("Arial", 12, FontStyle.Regular), Brushes.Black, new Point(25, 235));
             e.Graphics.DrawString("Tên món ăn: ", new Font("Bookman Old Style", 12, FontStyle.Regular), Brushes.Black, new Point(30, 255));
             e.Graphics.DrawString("Số lượng: ", new Font("Bookman Old Style", 12, FontStyle.Regular), Brushes.Black, new Point(380, 255));
@@ -358,6 +359,10 @@ namespace WindowsFormsApp1
 
         }
 
-       
+        private void nmDiscount_ValueChanged(object sender, EventArgs e)
+        {
+            if (lsvBill.Tag != null)
+                ShowBill((lsvBill.Tag as Table).ID);
+        }
     }
 }

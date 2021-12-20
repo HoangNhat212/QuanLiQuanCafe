@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fAdmin));
             this.panelMenu = new System.Windows.Forms.Panel();
+            this.btnStatistics = new System.Windows.Forms.Button();
             this.btnAccount = new System.Windows.Forms.Button();
             this.btnTable = new System.Windows.Forms.Button();
             this.btnCategory = new System.Windows.Forms.Button();
@@ -46,7 +47,6 @@
             this.panelDesktopPane = new System.Windows.Forms.Panel();
             this.label14 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.btnStatistics = new System.Windows.Forms.Button();
             this.panelMenu.SuspendLayout();
             this.panelLogo.SuspendLayout();
             this.panelTitleBar.SuspendLayout();
@@ -69,6 +69,26 @@
             this.panelMenu.Name = "panelMenu";
             this.panelMenu.Size = new System.Drawing.Size(196, 514);
             this.panelMenu.TabIndex = 1;
+            // 
+            // btnStatistics
+            // 
+            this.btnStatistics.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnStatistics.FlatAppearance.BorderSize = 0;
+            this.btnStatistics.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnStatistics.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnStatistics.ForeColor = System.Drawing.Color.Gainsboro;
+            this.btnStatistics.Image = ((System.Drawing.Image)(resources.GetObject("btnStatistics.Image")));
+            this.btnStatistics.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnStatistics.Location = new System.Drawing.Point(0, 372);
+            this.btnStatistics.Name = "btnStatistics";
+            this.btnStatistics.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
+            this.btnStatistics.Size = new System.Drawing.Size(196, 60);
+            this.btnStatistics.TabIndex = 6;
+            this.btnStatistics.Text = "   Thống kê";
+            this.btnStatistics.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnStatistics.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnStatistics.UseVisualStyleBackColor = true;
+            this.btnStatistics.Click += new System.EventHandler(this.btnStatistics_Click);
             // 
             // btnAccount
             // 
@@ -172,7 +192,7 @@
             // 
             // panelLogo
             // 
-            this.panelLogo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.panelLogo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(104)))), ((int)(((byte)(130)))));
             this.panelLogo.Controls.Add(this.label11);
             this.panelLogo.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelLogo.Location = new System.Drawing.Point(0, 0);
@@ -193,7 +213,7 @@
             // 
             // panelTitleBar
             // 
-            this.panelTitleBar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(136)))));
+            this.panelTitleBar.BackColor = System.Drawing.Color.CornflowerBlue;
             this.panelTitleBar.Controls.Add(this.btnMinimize);
             this.panelTitleBar.Controls.Add(this.btnMaximize);
             this.panelTitleBar.Controls.Add(this.btnClose);
@@ -318,26 +338,6 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
-            // 
-            // btnStatistics
-            // 
-            this.btnStatistics.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnStatistics.FlatAppearance.BorderSize = 0;
-            this.btnStatistics.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnStatistics.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnStatistics.ForeColor = System.Drawing.Color.Gainsboro;
-            this.btnStatistics.Image = ((System.Drawing.Image)(resources.GetObject("btnStatistics.Image")));
-            this.btnStatistics.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnStatistics.Location = new System.Drawing.Point(0, 372);
-            this.btnStatistics.Name = "btnStatistics";
-            this.btnStatistics.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
-            this.btnStatistics.Size = new System.Drawing.Size(196, 60);
-            this.btnStatistics.TabIndex = 6;
-            this.btnStatistics.Text = "   Thống kê";
-            this.btnStatistics.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnStatistics.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnStatistics.UseVisualStyleBackColor = true;
-            this.btnStatistics.Click += new System.EventHandler(this.btnStatistics_Click);
             // 
             // fAdmin
             // 

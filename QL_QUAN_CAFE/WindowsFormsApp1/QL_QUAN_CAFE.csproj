@@ -275,5 +275,11 @@
   <ItemGroup>
     <None Include="Resources\poster_template_coffee_day_generated_LI.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\workspace7_generated.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\workspace7_generated11.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

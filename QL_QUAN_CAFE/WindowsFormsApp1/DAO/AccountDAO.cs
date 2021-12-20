@@ -21,36 +21,36 @@ namespace WindowsFormsApp1.DAO
 
         private AccountDAO() { }
 
-        //public string MyEncrypt(string s)
-        //{
-        //    byte[] temp = ASCIIEncoding.ASCII.GetBytes(s);
-        //    byte[] hashData = new MD5CryptoServiceProvider().ComputeHash(temp);
-        //    string hashPass = null;
-        //    foreach (byte item in hashData)
-        //    {
-        //        hashPass += item;
-        //    }
+        public string MyEncrypt(string s)
+        {
+            byte[] temp = ASCIIEncoding.ASCII.GetBytes(s);
+            byte[] hashData = new MD5CryptoServiceProvider().ComputeHash(temp);
+            string hashPass = null;
+            foreach (byte item in hashData)
+            {
+                hashPass += item;
+            }
 
-        //    return hashPass;
-        //}
+            return hashPass;
+        }
 
         public bool Login(string userName, string passWord)
         {
-            //string hashPass = MyEncrypt(passWord);
+            string hashPass = MyEncrypt(passWord);
 
             string query = "USP_Login @userName , @passWord";
 
-            DataTable result = DataProvider.Instance.ExecuteQuery(query,new object[]{userName, passWord});
+            DataTable result = DataProvider.Instance.ExecuteQuery(query,new object[]{userName, hashPass});
 
             return result.Rows.Count > 0;
         }
 
         public bool UpdateAccount(string userName, string displayName, string passWord, string newPass)
         {
-            //string hashPass = MyEncrypt(passWord);
-            //string hashNewPass = MyEncrypt(newPass);
+            string hashPass = MyEncrypt(passWord);
+            string hashNewPass = MyEncrypt(newPass);
 
-            int result = DataProvider.Instance.ExecuteNonQuery("exec USP_UpdateAccount @userName , @displayName , @password , @newPassword", new object[]{ userName, displayName, passWord, newPass });
+            int result = DataProvider.Instance.ExecuteNonQuery("exec USP_UpdateAccount @userName , @displayName , @password , @newPassword", new object[]{ userName, displayName, hashPass, hashNewPass });
 
             return result > 0;
         }
@@ -71,7 +71,7 @@ namespace WindowsFormsApp1.DAO
         }
         public bool InsertAccount(string userName, string displayName, int Type)
         {
-            string query = string.Format("INSERT dbo.Account ( UserName, DisplayName, Type ) VALUES  ( N'{0}', N'{1}', {2})", userName, displayName, Type);
+            string query = string.Format("INSERT dbo.Account ( UserName, DisplayName, Type, password ) VALUES  ( N'{0}', N'{1}', {2}, {3})", userName, displayName, Type, "1962026656160185351301320480154111117132155");
             int result = DataProvider.Instance.ExecuteNonQuery(query);
             if (result > 0)
                 return true;
@@ -95,7 +95,7 @@ namespace WindowsFormsApp1.DAO
         }
         public bool ResetPassword(string Name)
         {
-            string query = string.Format("update ACCOUNT set PASSWORD=N'1' where USERNAME=N'{0}'", Name);
+            string query = string.Format("update ACCOUNT set PASSWORD=N'1962026656160185351301320480154111117132155' where USERNAME=N'{0}'", Name);
             int result = DataProvider.Instance.ExecuteNonQuery(query);
             return result > 0;
         }

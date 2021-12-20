@@ -471,4 +471,20 @@ select*from bill
 
 ------------------------------------------
 
+create table CUSTOMER
+(
+	IDKH INT IDENTITY primary key,
+	NAME NVARCHAR(100),
+	PHONE VARCHAR(30) not null, 
+	BIRTHDAY datetime,
+	REGISTRATIONDATE datetime,
+	TYPE VARCHAR(20) not null
+)
 
+alter table CUSTOMER alter column TYPE NVARCHAR(20) not null
+alter table CUSTOMER alter column BIRTHDAY DATE
+alter table CUSTOMER alter column REGISTRATIONDATE DATE
+drop table CUSTOMER
+
+select * from CUSTOMER where PHONE = 0973838158
+INSERT dbo.CUSTOMER ( name, phone, birthday, registrationdate, type ) VALUES  (N'Nguyễn Văn C', 0123456789, '2002/02/21', '12/20/2021', N'đồng')

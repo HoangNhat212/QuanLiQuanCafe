@@ -13,7 +13,7 @@ namespace WindowsFormsApp1.FormsInAdmin
 {
     public partial class FormStatistics : Form
     {
-        private SqlConnection conn = new SqlConnection("Data Source=desktop-qch0v0c;Initial Catalog=Test;Integrated Security=True");
+        private SqlConnection conn = new SqlConnection("Data Source=.\\sqlexpress;Initial Catalog=Test;Integrated Security=True");
         public FormStatistics()
         {
             InitializeComponent();

@@ -43,17 +43,6 @@ namespace WindowsFormsApp1
         [DllImport("user32.DLL", EntryPoint = "SendMessage")]
         private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int lParam);
         //Methods
-        private Color SelectThemeColor()
-        {
-            int index = random.Next(ThemeColor.ColorList.Count);
-            while (tempIndex == index)
-            {
-                index = random.Next(ThemeColor.ColorList.Count);
-            }
-            tempIndex = index;
-            string color = ThemeColor.ColorList[index];
-            return ColorTranslator.FromHtml(color);
-        }
         private void ActivateButton(object btnSender)
         {
             if (btnSender != null)
@@ -61,15 +50,14 @@ namespace WindowsFormsApp1
                 if (currentButton != (Button)btnSender)
                 {
                     DisableButton();
-                    Color color = SelectThemeColor();
                     currentButton = (Button)btnSender;
-                    currentButton.BackColor = color;
+                    currentButton.BackColor = Color.CornflowerBlue;
                     currentButton.ForeColor = Color.White;
                     currentButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-                    panelTitleBar.BackColor = color;
-                    panelLogo.BackColor = ThemeColor.ChangeColorBrightness(color, -0.3);
-                    ThemeColor.PrimaryColor = color;
-                    ThemeColor.SecondaryColor = ThemeColor.ChangeColorBrightness(color, -0.3);
+                    panelTitleBar.BackColor = Color.CornflowerBlue;
+                    panelLogo.BackColor = Color.FromArgb(64, 104, 130);
+                    ThemeColor.PrimaryColor = Color.CornflowerBlue;
+                    ThemeColor.SecondaryColor = ThemeColor.ChangeColorBrightness(Color.CornflowerBlue, -0.3);
                     btnCloseChildForm.Visible = true;
                 }
             }
@@ -142,8 +130,8 @@ namespace WindowsFormsApp1
         {
             DisableButton();
             lblTitle.Text = "ADMIN";
-            panelTitleBar.BackColor = Color.FromArgb(0, 150, 136);
-            panelLogo.BackColor = Color.FromArgb(0, 64, 64);
+            panelTitleBar.BackColor = Color.CornflowerBlue;
+            panelLogo.BackColor = Color.FromArgb(64, 104, 130);
             currentButton = null;
             btnCloseChildForm.Visible = false;
         }
