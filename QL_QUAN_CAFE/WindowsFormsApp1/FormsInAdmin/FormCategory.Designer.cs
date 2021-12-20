@@ -29,7 +29,7 @@ namespace WindowsFormsApp1.FormsInAdmin
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel17 = new System.Windows.Forms.Panel();
             this.btnShowCategory = new System.Windows.Forms.Button();
             this.btnEditCategory = new System.Windows.Forms.Button();
@@ -43,6 +43,7 @@ namespace WindowsFormsApp1.FormsInAdmin
             this.panel16 = new System.Windows.Forms.Panel();
             this.txbCategoryID = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
+            this.btnExportCategory = new System.Windows.Forms.Button();
             this.panel17.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvCategory)).BeginInit();
             this.panel12.SuspendLayout();
@@ -123,14 +124,14 @@ namespace WindowsFormsApp1.FormsInAdmin
             this.dtgvCategory.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dtgvCategory.BackgroundColor = System.Drawing.Color.White;
             this.dtgvCategory.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.ControlLight;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dtgvCategory.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.ControlLight;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dtgvCategory.DefaultCellStyle = dataGridViewCellStyle2;
             this.dtgvCategory.Location = new System.Drawing.Point(409, 11);
             this.dtgvCategory.Margin = new System.Windows.Forms.Padding(2);
             this.dtgvCategory.Name = "dtgvCategory";
@@ -149,7 +150,7 @@ namespace WindowsFormsApp1.FormsInAdmin
             this.panel12.Location = new System.Drawing.Point(37, 82);
             this.panel12.Margin = new System.Windows.Forms.Padding(2);
             this.panel12.Name = "panel12";
-            this.panel12.Size = new System.Drawing.Size(323, 389);
+            this.panel12.Size = new System.Drawing.Size(323, 327);
             this.panel12.TabIndex = 9;
             // 
             // panel15
@@ -216,12 +217,27 @@ namespace WindowsFormsApp1.FormsInAdmin
             this.label8.TabIndex = 0;
             this.label8.Text = "ID:";
             // 
+            // btnExportCategory
+            // 
+            this.btnExportCategory.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnExportCategory.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnExportCategory.Font = new System.Drawing.Font("UTM Androgyne", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnExportCategory.Location = new System.Drawing.Point(11, 423);
+            this.btnExportCategory.Name = "btnExportCategory";
+            this.btnExportCategory.Size = new System.Drawing.Size(127, 41);
+            this.btnExportCategory.TabIndex = 15;
+            this.btnExportCategory.Text = "Xuất dữ liệu";
+            this.btnExportCategory.UseVisualStyleBackColor = true;
+            this.btnExportCategory.Click += new System.EventHandler(this.btnExportCategory_Click);
+            // 
             // FormCategory
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.MintCream;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(800, 476);
+            this.Controls.Add(this.btnExportCategory);
             this.Controls.Add(this.panel17);
             this.Controls.Add(this.dtgvCategory);
             this.Controls.Add(this.panel12);
@@ -255,5 +271,6 @@ namespace WindowsFormsApp1.FormsInAdmin
         private System.Windows.Forms.Panel panel16;
         private System.Windows.Forms.TextBox txbCategoryID;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Button btnExportCategory;
     }
 }

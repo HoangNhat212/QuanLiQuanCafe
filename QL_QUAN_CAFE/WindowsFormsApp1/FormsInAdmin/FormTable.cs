@@ -42,6 +42,10 @@ namespace WindowsFormsApp1.FormsInAdmin
             btnShowTable.BackColor = ThemeColor.PrimaryColor;
             btnShowTable.ForeColor = Color.White;
             btnShowTable.FlatAppearance.BorderColor = ThemeColor.SecondaryColor;
+            btnExportTable.BackColor = ThemeColor.PrimaryColor;
+            btnExportTable.ForeColor = Color.White;
+            btnExportTable.FlatAppearance.BorderColor = ThemeColor.SecondaryColor;
+
         }
 
         void StyleDatagridview() //Custome Bảng

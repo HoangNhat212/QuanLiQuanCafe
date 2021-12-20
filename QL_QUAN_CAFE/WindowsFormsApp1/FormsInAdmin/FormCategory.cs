@@ -44,6 +44,9 @@ namespace WindowsFormsApp1.FormsInAdmin
                 btnShowCategory.BackColor = ThemeColor.PrimaryColor;
                 btnShowCategory.ForeColor = Color.White;
                 btnShowCategory.FlatAppearance.BorderColor = ThemeColor.SecondaryColor;
+                btnExportCategory.BackColor = ThemeColor.PrimaryColor;
+                btnExportCategory.ForeColor = Color.White;
+                btnExportCategory.FlatAppearance.BorderColor = ThemeColor.SecondaryColor;
             }
         }
 
@@ -134,6 +137,11 @@ namespace WindowsFormsApp1.FormsInAdmin
             {
                 MessageBox.Show("Cập nhật danh mục thất bại");
             }
+        }
+
+        private void btnExportCategory_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

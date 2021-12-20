@@ -47,6 +47,7 @@ namespace WindowsFormsApp1.FormsInAdmin
             this.btnDeleteAccount = new System.Windows.Forms.Button();
             this.btnAddAccount = new System.Windows.Forms.Button();
             this.dtgvAccount = new System.Windows.Forms.DataGridView();
+            this.btnExportAccount = new System.Windows.Forms.Button();
             this.panel23.SuspendLayout();
             this.panel22.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nmType)).BeginInit();
@@ -68,7 +69,7 @@ namespace WindowsFormsApp1.FormsInAdmin
             this.panel23.Location = new System.Drawing.Point(37, 81);
             this.panel23.Margin = new System.Windows.Forms.Padding(2);
             this.panel23.Name = "panel23";
-            this.panel23.Size = new System.Drawing.Size(323, 391);
+            this.panel23.Size = new System.Drawing.Size(323, 332);
             this.panel23.TabIndex = 9;
             // 
             // btnResetPassword
@@ -271,12 +272,27 @@ namespace WindowsFormsApp1.FormsInAdmin
             this.dtgvAccount.Size = new System.Drawing.Size(380, 461);
             this.dtgvAccount.TabIndex = 7;
             // 
+            // btnExportAccount
+            // 
+            this.btnExportAccount.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnExportAccount.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnExportAccount.Font = new System.Drawing.Font("UTM Androgyne", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnExportAccount.Location = new System.Drawing.Point(13, 423);
+            this.btnExportAccount.Name = "btnExportAccount";
+            this.btnExportAccount.Size = new System.Drawing.Size(127, 41);
+            this.btnExportAccount.TabIndex = 16;
+            this.btnExportAccount.Text = "Xuất dữ liệu";
+            this.btnExportAccount.UseVisualStyleBackColor = true;
+            this.btnExportAccount.Click += new System.EventHandler(this.btnExportAccount_Click);
+            // 
             // FormAccount
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.MintCream;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(800, 476);
+            this.Controls.Add(this.btnExportAccount);
             this.Controls.Add(this.panel23);
             this.Controls.Add(this.panel28);
             this.Controls.Add(this.dtgvAccount);
@@ -318,5 +334,6 @@ namespace WindowsFormsApp1.FormsInAdmin
         private System.Windows.Forms.Button btnAddAccount;
         private System.Windows.Forms.DataGridView dtgvAccount;
         private System.Windows.Forms.NumericUpDown nmType;
+        private System.Windows.Forms.Button btnExportAccount;
     }
 }

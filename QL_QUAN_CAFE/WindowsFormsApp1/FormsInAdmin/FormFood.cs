@@ -46,6 +46,9 @@ namespace WindowsFormsApp1.FormsInAdmin
             btnShowFood.BackColor = ThemeColor.PrimaryColor;
             btnShowFood.ForeColor = Color.White;
             btnShowFood.FlatAppearance.BorderColor = ThemeColor.SecondaryColor;
+            btnExportFood.BackColor = ThemeColor.PrimaryColor;
+            btnExportFood.ForeColor = Color.White;
+            btnExportFood.FlatAppearance.BorderColor = ThemeColor.SecondaryColor;
 
         }
 
@@ -216,6 +219,11 @@ namespace WindowsFormsApp1.FormsInAdmin
         {
             add { updateFood += value; }
             remove { updateFood -= value; }
-        }     
+        }
+
+        private void btnExportFood_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

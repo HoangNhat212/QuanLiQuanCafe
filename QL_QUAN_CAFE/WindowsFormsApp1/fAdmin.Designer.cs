@@ -56,7 +56,7 @@
             // 
             // panelMenu
             // 
-            this.panelMenu.BackColor = System.Drawing.Color.DarkSlateGray;
+            this.panelMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(132)))), ((int)(((byte)(172)))));
             this.panelMenu.Controls.Add(this.btnStatistics);
             this.panelMenu.Controls.Add(this.btnAccount);
             this.panelMenu.Controls.Add(this.btnTable);
@@ -192,7 +192,7 @@
             // 
             // panelLogo
             // 
-            this.panelLogo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(104)))), ((int)(((byte)(130)))));
+            this.panelLogo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(87)))), ((int)(((byte)(126)))));
             this.panelLogo.Controls.Add(this.label11);
             this.panelLogo.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelLogo.Location = new System.Drawing.Point(0, 0);
@@ -304,6 +304,7 @@
             // 
             // panelDesktopPane
             // 
+            this.panelDesktopPane.BackColor = System.Drawing.Color.MintCream;
             this.panelDesktopPane.BackgroundImage = global::WindowsFormsApp1.Properties.Resources.bground__2_;
             this.panelDesktopPane.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.panelDesktopPane.Controls.Add(this.label14);
