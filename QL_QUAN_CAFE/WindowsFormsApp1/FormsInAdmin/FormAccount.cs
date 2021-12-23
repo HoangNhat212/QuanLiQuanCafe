@@ -50,9 +50,6 @@ namespace WindowsFormsApp1.FormsInAdmin
             btnShowAccount.BackColor = ThemeColor.PrimaryColor;
             btnShowAccount.ForeColor = Color.White;
             btnShowAccount.FlatAppearance.BorderColor = ThemeColor.SecondaryColor;
-            btnExportAccount.BackColor = ThemeColor.PrimaryColor;
-            btnExportAccount.ForeColor = Color.White;
-            btnExportAccount.FlatAppearance.BorderColor = ThemeColor.SecondaryColor;
         }
 
         void StyleDatagridview() //Custome Bảng
@@ -193,11 +190,6 @@ namespace WindowsFormsApp1.FormsInAdmin
             string userName = txbUserName.Text;
 
             ResetPass(userName);
-        }
-
-        private void btnExportAccount_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

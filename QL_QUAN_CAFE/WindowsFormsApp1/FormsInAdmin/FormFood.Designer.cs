@@ -29,7 +29,7 @@ namespace WindowsFormsApp1.FormsInAdmin
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dtgvFood = new System.Windows.Forms.DataGridView();
             this.panel6 = new System.Windows.Forms.Panel();
             this.txbSearchFoodName = new System.Windows.Forms.TextBox();
@@ -52,7 +52,6 @@ namespace WindowsFormsApp1.FormsInAdmin
             this.btnEditFood = new System.Windows.Forms.Button();
             this.btnDeleteFood = new System.Windows.Forms.Button();
             this.btnAddFood = new System.Windows.Forms.Button();
-            this.btnExportFood = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvFood)).BeginInit();
             this.panel6.SuspendLayout();
             this.panel5.SuspendLayout();
@@ -72,14 +71,14 @@ namespace WindowsFormsApp1.FormsInAdmin
             this.dtgvFood.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dtgvFood.BackgroundColor = System.Drawing.Color.White;
             this.dtgvFood.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.ControlLight;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("UTM Androgyne", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dtgvFood.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.ControlLight;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("UTM Androgyne", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dtgvFood.DefaultCellStyle = dataGridViewCellStyle1;
             this.dtgvFood.Location = new System.Drawing.Point(409, 11);
             this.dtgvFood.Margin = new System.Windows.Forms.Padding(2);
             this.dtgvFood.Name = "dtgvFood";
@@ -329,19 +328,6 @@ namespace WindowsFormsApp1.FormsInAdmin
             this.btnAddFood.UseVisualStyleBackColor = true;
             this.btnAddFood.Click += new System.EventHandler(this.btnAddFood_Click);
             // 
-            // btnExportFood
-            // 
-            this.btnExportFood.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnExportFood.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnExportFood.Font = new System.Drawing.Font("UTM Androgyne", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnExportFood.Location = new System.Drawing.Point(11, 435);
-            this.btnExportFood.Name = "btnExportFood";
-            this.btnExportFood.Size = new System.Drawing.Size(127, 41);
-            this.btnExportFood.TabIndex = 14;
-            this.btnExportFood.Text = "Xuất dữ liệu";
-            this.btnExportFood.UseVisualStyleBackColor = true;
-            this.btnExportFood.Click += new System.EventHandler(this.btnExportFood_Click);
-            // 
             // FormFood
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 15F);
@@ -349,7 +335,6 @@ namespace WindowsFormsApp1.FormsInAdmin
             this.BackColor = System.Drawing.Color.MintCream;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(800, 488);
-            this.Controls.Add(this.btnExportFood);
             this.Controls.Add(this.dtgvFood);
             this.Controls.Add(this.panel6);
             this.Controls.Add(this.panel5);
@@ -401,6 +386,5 @@ namespace WindowsFormsApp1.FormsInAdmin
         private System.Windows.Forms.Button btnEditFood;
         private System.Windows.Forms.Button btnDeleteFood;
         private System.Windows.Forms.Button btnAddFood;
-        private System.Windows.Forms.Button btnExportFood;
     }
 }

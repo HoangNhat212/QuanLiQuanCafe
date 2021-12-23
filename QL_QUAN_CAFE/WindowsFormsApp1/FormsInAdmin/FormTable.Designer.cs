@@ -29,7 +29,7 @@ namespace WindowsFormsApp1.FormsInAdmin
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel11 = new System.Windows.Forms.Panel();
             this.panel21 = new System.Windows.Forms.Panel();
             this.nmTableStatus = new System.Windows.Forms.NumericUpDown();
@@ -46,7 +46,6 @@ namespace WindowsFormsApp1.FormsInAdmin
             this.btnDeleteTable = new System.Windows.Forms.Button();
             this.btnAddTable = new System.Windows.Forms.Button();
             this.dtgvTable = new System.Windows.Forms.DataGridView();
-            this.btnExportTable = new System.Windows.Forms.Button();
             this.panel11.SuspendLayout();
             this.panel21.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nmTableStatus)).BeginInit();
@@ -65,7 +64,7 @@ namespace WindowsFormsApp1.FormsInAdmin
             this.panel11.Controls.Add(this.panel13);
             this.panel11.Controls.Add(this.panel14);
             this.panel11.Location = new System.Drawing.Point(36, 78);
-            this.panel11.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel11.Margin = new System.Windows.Forms.Padding(2);
             this.panel11.Name = "panel11";
             this.panel11.Size = new System.Drawing.Size(323, 304);
             this.panel11.TabIndex = 12;
@@ -75,7 +74,7 @@ namespace WindowsFormsApp1.FormsInAdmin
             this.panel21.Controls.Add(this.nmTableStatus);
             this.panel21.Controls.Add(this.label9);
             this.panel21.Location = new System.Drawing.Point(2, 109);
-            this.panel21.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel21.Margin = new System.Windows.Forms.Padding(2);
             this.panel21.Name = "panel21";
             this.panel21.Size = new System.Drawing.Size(319, 37);
             this.panel21.TabIndex = 1;
@@ -83,7 +82,7 @@ namespace WindowsFormsApp1.FormsInAdmin
             // nmTableStatus
             // 
             this.nmTableStatus.Location = new System.Drawing.Point(126, 16);
-            this.nmTableStatus.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.nmTableStatus.Margin = new System.Windows.Forms.Padding(2);
             this.nmTableStatus.Maximum = new decimal(new int[] {
             1,
             0,
@@ -110,7 +109,7 @@ namespace WindowsFormsApp1.FormsInAdmin
             this.panel13.Controls.Add(this.txbTableName);
             this.panel13.Controls.Add(this.label5);
             this.panel13.Location = new System.Drawing.Point(2, 59);
-            this.panel13.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel13.Margin = new System.Windows.Forms.Padding(2);
             this.panel13.Name = "panel13";
             this.panel13.Size = new System.Drawing.Size(319, 37);
             this.panel13.TabIndex = 1;
@@ -119,7 +118,7 @@ namespace WindowsFormsApp1.FormsInAdmin
             // 
             this.txbTableName.Font = new System.Drawing.Font("UTM Androgyne", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txbTableName.Location = new System.Drawing.Point(126, 9);
-            this.txbTableName.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txbTableName.Margin = new System.Windows.Forms.Padding(2);
             this.txbTableName.Name = "txbTableName";
             this.txbTableName.Size = new System.Drawing.Size(190, 23);
             this.txbTableName.TabIndex = 1;
@@ -141,7 +140,7 @@ namespace WindowsFormsApp1.FormsInAdmin
             this.panel14.Controls.Add(this.txbTableID);
             this.panel14.Controls.Add(this.label6);
             this.panel14.Location = new System.Drawing.Point(2, 11);
-            this.panel14.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel14.Margin = new System.Windows.Forms.Padding(2);
             this.panel14.Name = "panel14";
             this.panel14.Size = new System.Drawing.Size(319, 37);
             this.panel14.TabIndex = 1;
@@ -151,7 +150,7 @@ namespace WindowsFormsApp1.FormsInAdmin
             this.txbTableID.BackColor = System.Drawing.SystemColors.Window;
             this.txbTableID.Font = new System.Drawing.Font("UTM Androgyne", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txbTableID.Location = new System.Drawing.Point(126, 9);
-            this.txbTableID.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txbTableID.Margin = new System.Windows.Forms.Padding(2);
             this.txbTableID.Name = "txbTableID";
             this.txbTableID.ReadOnly = true;
             this.txbTableID.Size = new System.Drawing.Size(190, 23);
@@ -177,7 +176,7 @@ namespace WindowsFormsApp1.FormsInAdmin
             this.panel19.Controls.Add(this.btnDeleteTable);
             this.panel19.Controls.Add(this.btnAddTable);
             this.panel19.Location = new System.Drawing.Point(11, 11);
-            this.panel19.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel19.Margin = new System.Windows.Forms.Padding(2);
             this.panel19.Name = "panel19";
             this.panel19.Size = new System.Drawing.Size(380, 46);
             this.panel19.TabIndex = 11;
@@ -187,7 +186,7 @@ namespace WindowsFormsApp1.FormsInAdmin
             this.btnShowTable.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnShowTable.Font = new System.Drawing.Font("UTM Androgyne", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnShowTable.Location = new System.Drawing.Point(300, 2);
-            this.btnShowTable.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnShowTable.Margin = new System.Windows.Forms.Padding(2);
             this.btnShowTable.Name = "btnShowTable";
             this.btnShowTable.Size = new System.Drawing.Size(77, 41);
             this.btnShowTable.TabIndex = 0;
@@ -200,7 +199,7 @@ namespace WindowsFormsApp1.FormsInAdmin
             this.btnEditTable.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEditTable.Font = new System.Drawing.Font("UTM Androgyne", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEditTable.Location = new System.Drawing.Point(202, 2);
-            this.btnEditTable.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnEditTable.Margin = new System.Windows.Forms.Padding(2);
             this.btnEditTable.Name = "btnEditTable";
             this.btnEditTable.Size = new System.Drawing.Size(77, 41);
             this.btnEditTable.TabIndex = 0;
@@ -213,7 +212,7 @@ namespace WindowsFormsApp1.FormsInAdmin
             this.btnDeleteTable.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDeleteTable.Font = new System.Drawing.Font("UTM Androgyne", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDeleteTable.Location = new System.Drawing.Point(100, 2);
-            this.btnDeleteTable.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnDeleteTable.Margin = new System.Windows.Forms.Padding(2);
             this.btnDeleteTable.Name = "btnDeleteTable";
             this.btnDeleteTable.Size = new System.Drawing.Size(77, 41);
             this.btnDeleteTable.TabIndex = 0;
@@ -226,7 +225,7 @@ namespace WindowsFormsApp1.FormsInAdmin
             this.btnAddTable.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAddTable.Font = new System.Drawing.Font("UTM Androgyne", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAddTable.Location = new System.Drawing.Point(2, 2);
-            this.btnAddTable.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnAddTable.Margin = new System.Windows.Forms.Padding(2);
             this.btnAddTable.Name = "btnAddTable";
             this.btnAddTable.Size = new System.Drawing.Size(77, 41);
             this.btnAddTable.TabIndex = 0;
@@ -242,33 +241,21 @@ namespace WindowsFormsApp1.FormsInAdmin
             this.dtgvTable.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dtgvTable.BackgroundColor = System.Drawing.Color.White;
             this.dtgvTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.ControlLight;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dtgvTable.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.ControlLight;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dtgvTable.DefaultCellStyle = dataGridViewCellStyle1;
             this.dtgvTable.Location = new System.Drawing.Point(409, 11);
-            this.dtgvTable.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dtgvTable.Margin = new System.Windows.Forms.Padding(2);
             this.dtgvTable.Name = "dtgvTable";
             this.dtgvTable.RowHeadersWidth = 51;
             this.dtgvTable.RowTemplate.Height = 24;
             this.dtgvTable.Size = new System.Drawing.Size(380, 457);
             this.dtgvTable.TabIndex = 10;
-            // 
-            // btnExportTable
-            // 
-            this.btnExportTable.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnExportTable.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnExportTable.Font = new System.Drawing.Font("UTM Androgyne", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnExportTable.Location = new System.Drawing.Point(11, 423);
-            this.btnExportTable.Name = "btnExportTable";
-            this.btnExportTable.Size = new System.Drawing.Size(127, 41);
-            this.btnExportTable.TabIndex = 13;
-            this.btnExportTable.Text = "Xuất dữ liệu";
-            this.btnExportTable.UseVisualStyleBackColor = true;
             // 
             // FormTable
             // 
@@ -277,7 +264,6 @@ namespace WindowsFormsApp1.FormsInAdmin
             this.BackColor = System.Drawing.Color.MintCream;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(800, 476);
-            this.Controls.Add(this.btnExportTable);
             this.Controls.Add(this.panel11);
             this.Controls.Add(this.panel19);
             this.Controls.Add(this.dtgvTable);
@@ -318,6 +304,5 @@ namespace WindowsFormsApp1.FormsInAdmin
         private System.Windows.Forms.Button btnAddTable;
         private System.Windows.Forms.DataGridView dtgvTable;
         private System.Windows.Forms.NumericUpDown nmTableStatus;
-        private System.Windows.Forms.Button btnExportTable;
     }
 }

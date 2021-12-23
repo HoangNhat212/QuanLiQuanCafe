@@ -29,9 +29,8 @@ namespace WindowsFormsApp1.FormsInAdmin
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.btnExportBill = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.btnViewBill = new System.Windows.Forms.Button();
@@ -54,7 +53,6 @@ namespace WindowsFormsApp1.FormsInAdmin
             this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.panel2.BackColor = System.Drawing.Color.Transparent;
-            this.panel2.Controls.Add(this.btnExportBill);
             this.panel2.Controls.Add(this.label2);
             this.panel2.Controls.Add(this.label1);
             this.panel2.Controls.Add(this.btnViewBill);
@@ -65,19 +63,6 @@ namespace WindowsFormsApp1.FormsInAdmin
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(271, 467);
             this.panel2.TabIndex = 3;
-            // 
-            // btnExportBill
-            // 
-            this.btnExportBill.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnExportBill.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnExportBill.Font = new System.Drawing.Font("UTM Androgyne", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnExportBill.Location = new System.Drawing.Point(3, 419);
-            this.btnExportBill.Name = "btnExportBill";
-            this.btnExportBill.Size = new System.Drawing.Size(127, 41);
-            this.btnExportBill.TabIndex = 15;
-            this.btnExportBill.Text = "Xuất dữ liệu";
-            this.btnExportBill.UseVisualStyleBackColor = true;
-            this.btnExportBill.Click += new System.EventHandler(this.btnExportBill_Click);
             // 
             // label2
             // 
@@ -140,14 +125,14 @@ namespace WindowsFormsApp1.FormsInAdmin
             this.dtgvBill.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dtgvBill.BackgroundColor = System.Drawing.Color.White;
             this.dtgvBill.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.ControlLight;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dtgvBill.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.ControlLight;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dtgvBill.DefaultCellStyle = dataGridViewCellStyle1;
             this.dtgvBill.Location = new System.Drawing.Point(286, 4);
             this.dtgvBill.Margin = new System.Windows.Forms.Padding(2);
             this.dtgvBill.Name = "dtgvBill";
@@ -267,6 +252,5 @@ namespace WindowsFormsApp1.FormsInAdmin
         private System.Windows.Forms.Button btnLastBillPage;
         private System.Windows.Forms.Button btnPreviousBillPage;
         private System.Windows.Forms.Button btnNextBillPage;
-        private System.Windows.Forms.Button btnExportBill;
     }
 }

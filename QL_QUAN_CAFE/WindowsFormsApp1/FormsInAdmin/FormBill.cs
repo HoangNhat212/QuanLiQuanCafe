@@ -44,9 +44,6 @@ namespace WindowsFormsApp1.FormsInAdmin
             btnPreviousBillPage.BackColor = ThemeColor.PrimaryColor;
             btnPreviousBillPage.ForeColor = Color.White;
             btnPreviousBillPage.FlatAppearance.BorderColor = ThemeColor.SecondaryColor;
-            btnExportBill.BackColor = ThemeColor.PrimaryColor;
-            btnExportBill.ForeColor = Color.White;
-            btnExportBill.FlatAppearance.BorderColor = ThemeColor.SecondaryColor;
         }
 
         void StyleDatagridview() //Custome Bảng
@@ -131,11 +128,6 @@ namespace WindowsFormsApp1.FormsInAdmin
                 page++;
 
             txbPageBill.Text = page.ToString();
-        }
-
-        private void btnExportBill_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }
