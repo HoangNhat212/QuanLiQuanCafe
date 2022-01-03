@@ -38,7 +38,9 @@ CREATE TABLE BILL
 	DATECHECKIN DATE,
 	DATECHECKOUT DATE,
 	IDTABLE INT NOT NULL,
-	STATUS INT NOT NULL --1:ĐÃ THANH TOÁN, 0:CHƯA THANH TOÁN
+	STATUS INT NOT NULL, --1:ĐÃ THANH TOÁN, 0:CHƯA THANH TOÁN
+	DISCOUNT INT NOT NULL DEFAULT 0,
+	TOTALPRICE FLOAT 
 	FOREIGN KEY (IDTABLE) REFERENCES dbo.TABLEFOOD(ID)
 )
 GO
@@ -102,16 +104,12 @@ begin
 	select * from dbo.ACCOUNT where USERNAME=@userName and PASSWORD=@passWord
 end 
 go
-select*from TABLEFOOD
-select*from TABLEFOOD
 --Thêm category--
 insert dbo.FOODCATEGORY (NAME) values('Coffee')
 insert dbo.FOODCATEGORY (NAME) values('Nước Ngọt')
 insert dbo.FOODCATEGORY (NAME) values('Thức ăn nhanh')
 insert dbo.FOODCATEGORY (NAME) values('Detox')
 insert dbo.FOODCATEGORY (NAME) values('Trà')
-select*from FOODCATEGORY
-select*from FOOD
 --Thêm food--
 insert dbo.FOOD(NAME,IDCATEGORY,PRICE)values('Expresso',1,35000)
 insert dbo.FOOD(NAME,IDCATEGORY,PRICE)values('Americano',1,40000)
@@ -134,10 +132,6 @@ insert dbo.FOOD(NAME,IDCATEGORY,PRICE)values('Hồng trà dâu',5,35000)
 insert dbo.BILL(DATECHECKIN,DATECHECKOUT,IDTABLE,STATUS) values(GETDATE(),GETDATE(),9,0)
 insert dbo.BILL(DATECHECKIN,DATECHECKOUT,IDTABLE,STATUS) values(GETDATE(),GETDATE(),8,1)
 insert dbo.BILL(DATECHECKIN,DATECHECKOUT,IDTABLE,STATUS) values(GETDATE(),GETDATE(),4,1)
-select*from BILL,BILLINFO
-select*from BILLINFO
-select*from TABLEFOOD
-
 --Thêm BillInfo--
 insert dbo.BILLINFO(IDBILL,IDFOOD,COUNT) values(1,3,2)
 insert dbo.BILLINFO(IDBILL,IDFOOD,COUNT) values(1,6,2)
@@ -147,15 +141,12 @@ insert dbo.BILLINFO(IDBILL,IDFOOD,COUNT) values(2,12,1)
 insert dbo.BILLINFO(IDBILL,IDFOOD,COUNT) values(2,8,1)
 insert dbo.BILLINFO(IDBILL,IDFOOD,COUNT) values(2,9,1)
 insert dbo.BILLINFO(IDBILL,IDFOOD,COUNT) values(3,2,1)
-select*from BILLINFO where IDBILL=1
-select*from BILL where IDTABLE=4 and status =1
 select fod.NAME,bilinf.COUNT,fod.PRICE,fod.PRICE*bilinf.COUNT as TotalPrice from dbo.BILLINFO as bilinf, BILL as bil,dbo.FOOD as fod
 where bilinf.IDBILL=bil.ID and bilinf.IDFOOD=fod.ID and bil.STATUS=0 and bil.IDTABLE=9
 select*from TABLEFOOD
 select*from BILL where IDTABLE=9
 select fod.NAME,bilinf.COUNT,fod.PRICE,fod.PRICE*bilinf.COUNT as TotalPrice from dbo.BILLINFO as bilinf, BILL as bil,dbo.FOOD as fod 
 where bilinf.IDBILL = bil.ID and bilinf.IDFOOD = fod.ID and bil.STATUS=0 and bil.IDTABLE = 9
-
 CREATE PROC USP_InsertBill
 @idTable INT
 AS
@@ -215,10 +206,6 @@ END
 GO
 
 update dbo.BILL set STATUS=1 where ID=1
-
-DELETE BILLINFO
-DELETE BILL
-
 create trigger UTG_UpdateBillInfor 
 on dbo.BILLINFO FOR INSERT, UPDATE
 AS
@@ -280,12 +267,6 @@ begin
 end
 go
 
-----
-alter table dbo.BILL
-add discount int
-
-update dbo.BILL set discount = 0
-----
 
 ------Chuyển bàn------------------------------
 create proc USP_SwitchTable
@@ -377,8 +358,6 @@ alter table BILL alter column DATECHECKIN DATETIME
 alter table BILL alter column DATECHECKOUT DATETIME
 --------------------------------------------------
 
--------Thêm cột tổng tiên cho BILL---------
-alter table BILL add totalPrice float
 -------------------------------------------
 
 --------Hiển thị danh sách hóa đơn-------------
@@ -480,11 +459,3 @@ create table CUSTOMER
 	REGISTRATIONDATE datetime,
 	TYPE VARCHAR(20) not null
 )
-
-alter table CUSTOMER alter column TYPE NVARCHAR(20) not null
-alter table CUSTOMER alter column BIRTHDAY DATE
-alter table CUSTOMER alter column REGISTRATIONDATE DATE
-drop table CUSTOMER
-
-select * from CUSTOMER where PHONE = 0973838158
-INSERT dbo.CUSTOMER ( name, phone, birthday, registrationdate, type ) VALUES  (N'Nguyễn Văn C', 0123456789, '2002/02/21', '12/20/2021', N'đồng')
